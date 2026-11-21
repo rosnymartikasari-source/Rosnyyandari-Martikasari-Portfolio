@@ -1,859 +1,130 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sari | Portfolio</title>
+<title>Rosnyyandari Martikasari | Aspiring Product Manager</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-:root {
-  --bg: #f7f7f5;
-  --text: #222321;
-  --muted: #777973;
-  --line: #deded9;
-  --dark: #242523;
-  --white: #fff;
-  --accent: #a7afa3;
-  --radius: 18px;
-}
+:root{--bg:#f6f6f3;--paper:#fff;--ink:#222522;--muted:#6c716b;--line:#dedfda;--accent:#7d8e78;--accent2:#d9e0d4;--dark:#202420;--radius:22px;--max:1180px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}body{margin:0;background:var(--bg);color:var(--ink);font-family:'Poppins',sans-serif;font-size:16px;line-height:1.7}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}img{max-width:100%;display:block}
+.wrap{width:min(var(--max),calc(100% - 64px));margin:auto}.section{padding:110px 0}.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500}.section-head{max-width:780px;margin-bottom:46px}.section-head h2{font-size:clamp(36px,4.3vw,54px);line-height:1.18;letter-spacing:-.045em;margin:14px 0 16px;font-weight:600}.section-head p{color:var(--muted);max-width:650px;margin:0}.small{font-size:13px;color:var(--muted)}
+header{position:sticky;top:0;z-index:50;background:rgba(246,246,243,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{height:72px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:20px;font-weight:800;letter-spacing:-.06em}.navlinks{display:flex;gap:28px;align-items:center}.navlinks a{font-size:13px;color:#50554f;transition:color .2s}.navlinks a:hover{color:var(--ink)}.menu-btn{display:none;border:1px solid var(--line);background:transparent;border-radius:10px;padding:8px 12px}
+.hero{padding:88px 0 92px;min-height:calc(100vh - 72px);display:flex;align-items:center}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}.hero-kicker{display:flex;align-items:center;gap:10px;margin-bottom:28px}.dot{width:8px;height:8px;background:var(--accent);border-radius:50%}.hero h1{font-size:clamp(48px,6.6vw,82px);line-height:1.06;letter-spacing:-.065em;font-weight:700;margin:0 0 24px}.hero h1 .soft{color:#8b9189}.hero-copy{font-size:17px;max-width:610px;color:#565c55;margin-bottom:30px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 20px;border:1px solid var(--ink);border-radius:999px;font-size:13px;font-weight:500;transition:.2s}.btn.primary{background:var(--ink);color:white}.btn.primary:hover{background:var(--accent);border-color:var(--accent)}.btn.secondary:hover{background:var(--accent2);border-color:var(--accent2)}.hero-visual{position:relative;min-height:440px;display:flex;align-items:center;justify-content:center}.portrait-placeholder{width:min(100%,390px);height:440px;border-radius:210px 210px 24px 24px;background:#e6e8e1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#8c938b;border:1px solid #dfe2dc}.portrait-placeholder .initial{font-size:90px;font-weight:600;letter-spacing:-.07em;line-height:1}.portrait-placeholder span{font-size:11px;letter-spacing:.13em;margin-top:14px}.orbit-note{position:absolute;right:-4px;bottom:30px;background:var(--paper);border:1px solid var(--line);padding:12px 16px;border-radius:14px;font-size:12px;box-shadow:0 8px 30px rgba(0,0,0,.04)}.hero-caption{display:flex;justify-content:space-between;margin-top:12px;font-size:11px;color:var(--muted)}
+.about{background:var(--paper)}.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px}.about-label{position:sticky;top:110px;align-self:start}.about-text p{font-size:19px;line-height:1.85;margin:0 0 22px;letter-spacing:-.015em}.about-text p:last-child{margin-bottom:0}.about-text strong{font-weight:600}
+.experience{background:#eceee9}.timeline{border-top:1px solid #d4d8d0}.timeline-item{display:grid;grid-template-columns:190px 1fr;gap:35px;padding:30px 0;border-bottom:1px solid #d4d8d0}.timeline-date{font-size:12px;color:var(--muted);padding-top:5px}.timeline-title{font-size:21px;font-weight:600;margin:0 0 6px;letter-spacing:-.03em}.timeline-sub{color:var(--muted);font-size:14px;margin:0 0 12px}.timeline-desc{margin:0;color:#4e554e;font-size:14px;max-width:780px}
+.skills{background:var(--paper)}.skill-explorer{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}.skill-list{display:grid;gap:10px}.skill-choice{width:100%;text-align:left;border:1px solid var(--line);background:transparent;padding:20px 22px;border-radius:16px;display:flex;align-items:center;justify-content:space-between;transition:.2s}.skill-choice:hover,.skill-choice.active{background:var(--accent2);border-color:#c4cfc0}.skill-choice .choice-title{font-size:16px;font-weight:600}.skill-choice .choice-sub{font-size:12px;color:var(--muted);display:block;margin-top:3px}.skill-panel{background:#eff1ec;border-radius:var(--radius);padding:34px;min-height:320px;display:flex;flex-direction:column;justify-content:center}.skill-panel h3{font-size:27px;letter-spacing:-.04em;margin:0 0 12px}.skill-panel p{color:#596159;margin:0 0 22px;font-size:14px}.chips{display:flex;flex-wrap:wrap;gap:9px}.chip{border:1px solid #d2d8d0;border-radius:999px;padding:7px 12px;font-size:12px;background:rgba(255,255,255,.48)}.skill-foot{font-size:12px;color:var(--muted);margin-top:24px}
+.projects{background:var(--bg)}.project-toolbar{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 28px}.filter{border:1px solid var(--line);background:transparent;padding:9px 16px;border-radius:999px;font-size:12px}.filter.active,.filter:hover{background:var(--ink);color:white;border-color:var(--ink)}.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}.project-card{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:var(--paper);transition:transform .25s,box-shadow .25s}.project-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(30,35,30,.08)}.project-cover{height:270px;padding:28px;display:flex;align-items:flex-end;justify-content:space-between;position:relative;overflow:hidden}.cover-takar{background:#e8e2d1;color:#4b4b3d}.cover-soco{background:#f2dce4;color:#714457}.cover-pintar{background:#dfe9ed;color:#3d5b6c}.cover-fmcg{background:#e5e6d7;color:#4d5843}.cover-midtrans{background:#dce5f2;color:#405675}.cover-dashboard{background:#e5e5e2;color:#4a504c}.cover-grab{background:#dce9d8;color:#426044}.cover-word{font-size:clamp(30px,4vw,54px);line-height:1.05;letter-spacing:-.06em;font-weight:700;max-width:75%;position:relative;z-index:1}.cover-index{font-size:12px;position:relative;z-index:1}.cover-shape{position:absolute;border:1px solid currentColor;opacity:.18;border-radius:50%;width:240px;height:240px;right:-60px;top:-50px}.project-info{padding:24px 26px 28px}.project-meta{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.project-info h3{font-size:23px;margin:10px 0 8px;letter-spacing:-.04em}.project-info p{font-size:14px;color:#626862;margin:0 0 20px}.project-open{font-size:13px;font-weight:500;border-bottom:1px solid var(--ink);padding-bottom:3px;display:inline-block}.project-open:hover{color:var(--accent);border-color:var(--accent)}.project-card.hidden{display:none}
+.interests{background:var(--dark);color:#f4f5f1}.interests .section-head p,.interests .eyebrow{color:#b7bdb6}.interest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.interest-card{border:1px solid #4b514c;border-radius:18px;padding:26px;min-height:190px;background:rgba(255,255,255,.02)}.interest-card .num{font-size:11px;color:#aab4a8;letter-spacing:.12em}.interest-card h3{font-size:20px;margin:14px 0 8px;letter-spacing:-.03em}.interest-card p{font-size:13px;color:#c2c8c1;margin:0}
+.contact{background:var(--paper)}.contact-wrap{background:var(--ink);color:white;border-radius:26px;padding:56px}.contact h2{font-size:clamp(38px,5vw,58px);line-height:1.18;letter-spacing:-.05em;margin:14px 0 20px;max-width:780px}.contact p{color:#c5cbc4;max-width:650px}.contact-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.contact-links a{border:1px solid #626862;border-radius:999px;padding:12px 18px;font-size:13px;transition:.2s}.contact-links a:hover{background:white;color:var(--ink)}footer{padding:25px 0;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.modal{position:fixed;inset:0;background:rgba(22,25,22,.65);z-index:100;display:none;align-items:center;justify-content:center;padding:24px}.modal.open{display:flex}.modal-box{background:var(--paper);width:min(720px,100%);max-height:88vh;overflow:auto;border-radius:22px;padding:34px;position:relative}.modal-close{position:absolute;right:20px;top:20px;border:1px solid var(--line);background:transparent;border-radius:50%;width:38px;height:38px}.modal-box h2{font-size:34px;letter-spacing:-.05em;margin:12px 45px 12px 0}.modal-box p{color:#555e56}.modal-note{background:#eff1ec;border-radius:12px;padding:15px;font-size:13px;color:#535a53;margin-top:20px}.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}.reveal.visible{opacity:1;transform:none}
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 100px; }
-body {
-  font-family: 'Poppins', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
-}
-a { color: inherit; text-decoration: none; }
-button { font: inherit; }
-img { max-width: 100%; display: block; }
-
-/* NAVIGATION */
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  width: 100%;
-  background: rgba(247,247,245,.94);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
-}
-.nav-inner {
-  max-width: 1440px;
-  margin: auto;
-  padding: 18px 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo {
-  font-weight: 800;
-  font-size: 20px;
-  letter-spacing: -1px;
-}
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 27px;
-}
-.nav-links a {
-  font-size: 12px;
-  color: var(--muted);
-  transition: color .2s;
-}
-.nav-links a:hover { color: var(--text); }
-.menu-toggle {
-  display: none;
-  border: 1px solid var(--line);
-  background: transparent;
-  border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  cursor: pointer;
-}
-
-/* GENERAL */
-.wrap { width: min(1240px, 90%); margin: auto; }
-section { padding: 110px 0; scroll-margin-top: 80px; }
-.kicker {
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-size: 10px;
-  color: var(--muted);
-  margin-bottom: 20px;
-}
-.section-title {
-  font-size: clamp(35px, 5vw, 65px);
-  line-height: 1.12;
-  letter-spacing: -3px;
-  font-weight: 600;
-  max-width: 850px;
-}
-.section-intro {
-  color: var(--muted);
-  max-width: 620px;
-  margin-top: 22px;
-  font-size: 14px;
-}
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 13px 22px;
-  border: 1px solid var(--text);
-  border-radius: 100px;
-  font-size: 12px;
-  transition: .25s;
-}
-.btn-dark { background: var(--dark); color: white; }
-.btn-light { background: transparent; }
-.btn:hover { transform: translateY(-3px); }
-.text-link {
-  display: inline-block;
-  border-bottom: 1px solid currentColor;
-  padding-bottom: 4px;
-  font-size: 12px;
-}
-
-/* HERO */
-.hero { padding: 85px 0 100px; min-height: 80vh; }
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.25fr .75fr;
-  gap: 65px;
-  align-items: center;
-}
-.hero-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  color: var(--muted);
-  margin-bottom: 28px;
-}
-.hero h1 {
-  font-size: clamp(55px, 8.3vw, 112px);
-  line-height: .98;
-  letter-spacing: -7px;
-  font-weight: 700;
-}
-.hero h1 span { color: #92958f; }
-.hero-copy {
-  max-width: 560px;
-  color: #626560;
-  font-size: 14px;
-  margin-top: 28px;
-}
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
-.photo-frame {
-  aspect-ratio: 4 / 5;
-  background: #e6e7e2;
-  border-radius: 48% 48% 18px 18px;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.photo-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.photo-placeholder {
-  text-align: center;
-  color: #90938d;
-}
-.photo-placeholder strong {
-  font-size: 90px;
-  font-weight: 600;
-  line-height: 1;
-  display: block;
-}
-.photo-placeholder small {
-  font-size: 9px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-.photo-note {
-  display: flex;
-  justify-content: space-between;
-  font-size: 9px;
-  color: var(--muted);
-  padding-top: 10px;
-}
-
-/* ABOUT */
-.about { border-top: 1px solid var(--line); }
-.about-grid {
-  display: grid;
-  grid-template-columns: .7fr 1.3fr;
-  gap: 70px;
-}
-.about-label { font-size: 12px; color: var(--muted); }
-.about-copy {
-  font-size: clamp(20px, 2.5vw, 30px);
-  line-height: 1.55;
-  letter-spacing: -.7px;
-}
-.about-copy p + p { margin-top: 22px; }
-.about-copy strong { font-weight: 600; }
-
-/* JOURNEY */
-.journey { background: #ecece8; }
-.journey-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  margin-top: 50px;
-}
-.journey-item {
-  background: var(--bg);
-  border-radius: var(--radius);
-  padding: 28px;
-  min-height: 210px;
-}
-.journey-item .number {
-  font-size: 10px;
-  color: var(--muted);
-  margin-bottom: 35px;
-}
-.journey-item h3 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-.journey-item p { color: var(--muted); font-size: 12px; }
-
-/* TOOLKIT */
-.toolkit-grid {
-  display: grid;
-  grid-template-columns: .8fr 1.2fr;
-  gap: 65px;
-  margin-top: 55px;
-}
-.tool-tabs { display: flex; flex-direction: column; }
-.tool-tab {
-  padding: 18px 0;
-  text-align: left;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  color: var(--muted);
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-}
-.tool-tab.active { color: var(--text); }
-.tool-panel {
-  padding: 30px;
-  background: #ecece8;
-  border-radius: var(--radius);
-  min-height: 300px;
-}
-.tool-panel h3 { font-size: 28px; margin-bottom: 12px; }
-.tool-panel p { color: var(--muted); font-size: 13px; max-width: 550px; }
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin-top: 25px;
-}
-.skill-tags span {
-  padding: 9px 14px;
-  border: 1px solid #d4d5cf;
-  border-radius: 100px;
-  font-size: 11px;
-}
-
-/* PROJECTS */
-.projects { border-top: 1px solid var(--line); }
-.project-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 30px;
-}
-.filters {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin: 38px 0;
-}
-.filter-btn {
-  border: 1px solid var(--line);
-  background: transparent;
-  padding: 9px 16px;
-  border-radius: 100px;
-  font-size: 11px;
-  color: var(--muted);
-  cursor: pointer;
-}
-.filter-btn.active {
-  background: var(--dark);
-  color: white;
-  border-color: var(--dark);
-}
-.project-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-}
-.project-card { transition: transform .25s; }
-.project-card:hover { transform: translateY(-5px); }
-.project-cover {
-  border-radius: var(--radius);
-  min-height: 330px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 35px;
-  overflow: hidden;
-  position: relative;
-}
-.project-cover .cover-label {
-  text-align: center;
-  font-size: clamp(24px, 4vw, 48px);
-  line-height: 1.15;
-  letter-spacing: -2px;
-  font-weight: 600;
-  max-width: 350px;
-}
-.cover-takar { background: #e8e2d2; color: #514a39; }
-.cover-soco { background: #f3d9df; color: #6e3949; }
-.cover-midtrans { background: #dce6f2; color: #244c78; }
-.cover-pintar { background: #e1e4d4; color: #43513b; }
-.cover-fmcg { background: #e7d9c9; color: #674e38; }
-.cover-dashboard { background: #d9dfdc; color: #394a44; }
-.cover-grab { background: #dce8d7; color: #31563b; }
-.project-meta {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  color: var(--muted);
-  font-size: 10px;
-  margin-top: 17px;
-}
-.project-card h3 { font-size: 21px; font-weight: 600; margin-top: 5px; }
-.project-card p { color: var(--muted); font-size: 12px; margin-top: 8px; }
-.project-card.hidden { display: none; }
-.project-coming {
-  display: inline-block;
-  font-size: 10px;
-  color: var(--muted);
-  margin-top: 12px;
-}
-
-/* SIDE QUEST */
-.side-quests { background: var(--dark); color: var(--bg); }
-.side-quests .kicker { color: #a9aca7; }
-.side-quests .section-intro { color: #c1c3bf; }
-.side-quest-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: 45px;
-}
-.side-quest {
-  padding: 28px;
-  border: 1px solid #4a4c49;
-  border-radius: var(--radius);
-  min-height: 200px;
-}
-.side-quest span { font-size: 10px; color: #a9aca7; }
-.side-quest h3 { font-size: 20px; margin-top: 25px; font-weight: 500; }
-
-/* CONTACT */
-.contact {
-  background: var(--dark);
-  color: var(--bg);
-  padding: 100px 0 80px;
-}
-.contact .kicker { color: #a9aca7; }
-.contact h2 {
-  font-size: clamp(44px, 8vw, 105px);
-  line-height: 1.08;
-  letter-spacing: -5px;
-  font-weight: 600;
-  max-width: 1000px;
-}
-.contact-copy {
-  color: #c1c3bf;
-  font-size: 13px;
-  max-width: 550px;
-  margin-top: 25px;
-}
-.contact-links {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  margin-top: 35px;
-}
-.contact-links a {
-  font-size: 12px;
-  border-bottom: 1px solid #747672;
-  padding-bottom: 7px;
-  transition: opacity .2s;
-}
-.contact-links a:hover { opacity: .65; }
-
-/* FOOTER */
-footer {
-  background: var(--bg);
-  color: var(--muted);
-  padding: 23px 5%;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  font-size: 10px;
-}
-
-/* ANIMATION */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity .65s ease, transform .65s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* RESPONSIVE */
-@media (max-width: 850px) {
-  .hero-grid { grid-template-columns: 1fr .65fr; gap: 35px; }
-  .hero h1 { letter-spacing: -4px; }
-  .about-grid, .toolkit-grid { grid-template-columns: 1fr; gap: 30px; }
-  .project-cover { min-height: 260px; }
-}
-@media (max-width: 650px) {
-  .nav-inner { padding: 14px 5%; }
-  .menu-toggle { display: block; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    left: 0; right: 0; top: 100%;
-    background: var(--bg);
-    border-bottom: 1px solid var(--line);
-    padding: 20px 5%;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
-  }
-  .nav-links.open { display: flex; }
-  section { padding: 75px 0; }
-  .hero { padding-top: 60px; }
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero h1 { font-size: clamp(54px, 15vw, 80px); }
-  .hero-photo { max-width: 310px; }
-  .section-title { letter-spacing: -1.8px; }
-  .journey-grid, .project-grid { grid-template-columns: 1fr; }
-  .project-cover { min-height: 260px; }
-  .side-quest-grid { grid-template-columns: 1fr; }
-  .contact h2 { letter-spacing: -2px; }
-  footer { flex-direction: column; gap: 8px; }
-}
+/* Interactive PM puzzle */
+.puzzle-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.puzzle-board{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px;aspect-ratio:1/1;max-width:560px;margin:auto;padding:12px}
+.puzzle-piece{border:1px solid rgba(35,38,35,.12);min-height:210px;padding:24px;text-align:left;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;transition:transform .25s,filter .25s,box-shadow .25s;background:#e5e8e0;color:#242824;border-radius:30px 12px 30px 12px}
+.puzzle-piece:nth-child(2){border-radius:12px 30px 12px 30px;background:#d8e0d7}
+.puzzle-piece:nth-child(3){border-radius:12px 30px 12px 30px;background:#e8dfd1}
+.puzzle-piece:nth-child(4){border-radius:30px 12px 30px 12px;background:#dce4e8}
+.puzzle-piece:after{content:'';position:absolute;width:145px;height:145px;border:1px solid currentColor;border-radius:50%;opacity:.12;right:-38px;bottom:-50px;transition:transform .3s}
+.puzzle-piece:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(25,30,25,.08)}.puzzle-piece.active{outline:2px solid #778675;outline-offset:2px;filter:saturate(1.08)}.puzzle-piece.active:after{transform:scale(1.35)}
+.piece-number{font-size:11px;letter-spacing:.12em;opacity:.65}.piece-name{font-size:clamp(23px,2.4vw,32px);font-weight:600;letter-spacing:-.045em;line-height:1.2}.piece-caption{font-size:12px;opacity:.75;max-width:145px}
+.puzzle-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:105px;height:105px;background:#f7f7f3;border:1px solid #d8dbd4;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;font-weight:700;box-shadow:0 8px 24px rgba(30,35,30,.08);pointer-events:none;font-size:20px}.puzzle-center span{font-size:8px;letter-spacing:.1em;font-weight:500;color:#7a8178;margin-top:3px}
+.puzzle-detail{background:#f0f1ed;border-radius:24px;padding:36px;min-height:390px;display:flex;flex-direction:column;justify-content:center}.puzzle-detail h3{font-size:clamp(25px,2.7vw,34px);line-height:1.2;letter-spacing:-.045em;margin:12px 0 14px}.puzzle-detail>p{color:#596159;font-size:15px;margin:0 0 24px}.puzzle-tags{display:flex;flex-wrap:wrap;gap:8px}.puzzle-tags span{border:1px solid #cfd5cd;background:rgba(255,255,255,.45);border-radius:99px;padding:7px 11px;font-size:12px}.puzzle-evidence{border-top:1px solid #d4d8d0;margin-top:28px;padding-top:18px}.evidence-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#7a8178}.puzzle-evidence p{font-size:13px;margin:5px 0 0;color:#4e554e}.puzzle-hint{font-size:11px;color:#777e76;margin-top:22px}
+@media(max-width:850px){.puzzle-layout{grid-template-columns:1fr;gap:24px}.puzzle-board{max-width:500px}.puzzle-detail{min-height:320px}}
+@media(max-width:640px){.puzzle-board{gap:8px;padding:5px}.puzzle-piece{min-height:145px;padding:16px;border-radius:22px 9px 22px 9px}.puzzle-piece:nth-child(2),.puzzle-piece:nth-child(3){border-radius:9px 22px 9px 22px}.piece-name{font-size:22px}.piece-caption{font-size:10px}.puzzle-center{width:78px;height:78px;font-size:16px}.puzzle-center span{font-size:7px}.puzzle-detail{padding:24px}}
+@media(max-width:850px){.wrap{width:min(var(--max),calc(100% - 40px))}.section{padding:80px 0}.navlinks{gap:16px}.hero-grid{grid-template-columns:1fr .72fr;gap:32px}.hero-visual{min-height:360px}.portrait-placeholder{height:360px}.hero h1{font-size:clamp(44px,8vw,68px)}.about-grid{gap:40px}.project-cover{height:230px}.interest-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){html{scroll-padding-top:78px}.nav{height:64px}.menu-btn{display:block}.navlinks{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:18px 20px 22px;flex-direction:column;align-items:flex-start;gap:16px}.navlinks.open{display:flex}.hero{padding:64px 0 70px;min-height:auto}.hero-grid{grid-template-columns:1fr;gap:30px}.hero h1{font-size:clamp(43px,12vw,65px)}.hero-copy{font-size:16px}.hero-visual{min-height:330px}.portrait-placeholder{width:280px;height:330px}.portrait-placeholder .initial{font-size:72px}.orbit-note{right:0;bottom:18px}.about-grid{grid-template-columns:1fr;gap:24px}.about-label{position:static}.about-text p{font-size:17px}.timeline-item{grid-template-columns:1fr;gap:9px;padding:24px 0}.timeline-title{font-size:19px}.skill-explorer{grid-template-columns:1fr}.skill-panel{min-height:260px;padding:25px}.project-grid{grid-template-columns:1fr}.project-cover{height:220px}.project-info h3{font-size:21px}.interest-grid{grid-template-columns:1fr}.contact-wrap{padding:30px 24px}.contact h2{font-size:38px}.modal-box{padding:28px 22px}.modal-box h2{font-size:28px}.footer-inner{gap:8px}}
 </style>
 </head>
-
 <body>
-
-<!-- NAVIGATION -->
-<header class="navbar">
-  <div class="nav-inner">
-    <a href="#home" class="logo">SARI.</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
-    <nav class="nav-links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#journey">Journey</a>
-      <a href="#toolkit">Toolkit</a>
-      <a href="#projects">Projects</a>
-      <a href="#sidequests">Side quests</a>
-      <a href="#contact">Contact ↗</a>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">Rosnyyandari Martikasari</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open navigation">Menu</button>
+    <nav class="navlinks" id="navLinks">
+      <a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#interests">Interests</a><a href="#contact">Contact ↗</a>
     </nav>
   </div>
 </header>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="wrap hero-grid">
-    <div class="reveal">
-      <p class="hero-label">Urban Planning · Project Coordination · Product</p>
-      <h1>Understand.<br>Build.<br><span>Evolve.</span></h1>
-      <p class="hero-copy">
-        I see connections between people, processes, and bigger-picture problems.
-        My background in urban planning and project coordination shapes how I
-        approach product challenges: with curiosity, structure, and a perspective
-        that looks beyond the obvious.
-      </p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn btn-dark">Explore my work ↗</a>
-        <a href="#about" class="btn btn-light">A little about me</a>
-      </div>
+<main>
+<section class="hero" id="top"><div class="wrap hero-grid">
+  <div class="reveal">
+    <div class="hero-kicker eyebrow"><span class="dot"></span> ASPIRING PRODUCT MANAGER · URBAN PLANNING · PROJECT COORDINATION</div>
+    <h1>I connect the dots.<br><span class="soft">Then make them work.</span></h1>
+    <p class="hero-copy">Aspiring Product Manager with a foundation in urban planning and project coordination. I enjoy understanding how people, processes, and needs connect, then bringing structure to complex problems and exploring practical solutions.</p>
+    <div class="hero-actions"><a class="btn primary" href="#projects">Explore my projects ↗</a><a class="btn secondary" href="#about">Get to know me</a></div>
+  </div>
+  <div class="hero-visual reveal"><div class="portrait-placeholder" id="portrait"><div class="initial">S.</div><span>PHOTO PLACEHOLDER</span></div><div class="orbit-note">Planning mindset.<br>Product curiosity.</div><div class="hero-caption"><span>01 / Introduction</span><span>Indonesia</span></div></div>
+</div></section>
+<section class="section about" id="about"><div class="wrap about-grid">
+  <div class="about-label reveal"><div class="eyebrow">01 / About</div><p class="small">A perspective shaped by different disciplines.</p></div>
+  <div class="about-text reveal">
+  <p>Aspiring Product Manager with a foundation in urban planning and project coordination. I’m interested in understanding the intersection of business goals and people’s needs, connecting insights across different perspectives, and turning complex problems into practical solutions that create meaningful value.</p>
+</div>
+<section class="section experience" id="experience"><div class="wrap">
+  <div class="section-head reveal"><div class="eyebrow">02 / Experience & Learning</div><h2>Different experiences.<br>One evolving perspective.</h2><p>Work, education, and learning that have shaped how I think, collaborate, and approach problems.</p></div>
+  <div class="timeline reveal">
+    <article class="timeline-item"><div class="timeline-date">Education</div><div><h3 class="timeline-title">Urban & Regional Planning</h3><p class="timeline-sub">Bachelor’s Degree</p><p class="timeline-desc">Studied spatial relationships, communities, planning systems, and how different elements shape a bigger picture.</p></div></article>
+    <article class="timeline-item"><div class="timeline-date">Professional Experience</div><div><h3 class="timeline-title">Project Coordinator · CV Tamara Engineering</h3><p class="timeline-sub">Regional and national-scale projects</p><p class="timeline-desc">Coordinated project deliverables, stakeholders, documentation, and execution across multiple workstreams.</p></div></article>
+    <article class="timeline-item"><div class="timeline-date">Professional Experience</div><div><h3 class="timeline-title">Project Experience · SUCOFINDO</h3><p class="timeline-sub">Project support</p><p class="timeline-desc">Supported project coordination and collaboration involving multiple stakeholders and project requirements.</p></div></article>
+    <article class="timeline-item"><div class="timeline-date">Professional Development</div><div><h3 class="timeline-title">Business Analyst & Product Strategy Bootcamp</h3><p class="timeline-sub">Dibimbing.id</p><p class="timeline-desc">Built practical knowledge in business analysis, product strategy, research, requirements, product planning, data analysis, and hands-on case projects.</p></div></article>
+  </div>
+</div></section>
+<section class="section skills" id="skills"><div class="wrap">
+  <div class="section-head reveal"><div class="eyebrow">03 / What shapes my product thinking</div><h2>Different strengths.<br>One perspective.</h2><p>Explore the four pieces that shape how I approach product challenges. Each connects to skills I’ve gained through my education, work, and hands-on learning.</p></div>
+  <div class="puzzle-layout reveal">
+    <div class="puzzle-board" aria-label="Interactive four-part skills puzzle">
+      <button class="puzzle-piece piece-understand active" data-piece="understand"><span class="piece-number">01</span><span class="piece-name">Understand</span><span class="piece-caption">People · systems · problems</span></button>
+      <button class="puzzle-piece piece-align" data-piece="align"><span class="piece-number">02</span><span class="piece-name">Align</span><span class="piece-caption">Stakeholders · execution</span></button>
+      <button class="puzzle-piece piece-build" data-piece="build"><span class="piece-number">03</span><span class="piece-name">Build</span><span class="piece-caption">Product · solutions</span></button>
+      <button class="puzzle-piece piece-measure" data-piece="measure"><span class="piece-number">04</span><span class="piece-name">Measure</span><span class="piece-caption">Data · iteration</span></button>
+      <div class="puzzle-center" aria-hidden="true">S<span>’S APPROACH</span></div>
     </div>
-
-    <div class="hero-photo reveal">
-      <div class="photo-frame">
-        <!-- GANTI src DENGAN FOTO KAMU -->
-        <div class="photo-placeholder">
-          <strong>S.</strong>
-          <small>Your photo goes here</small>
-        </div>
-        <!--
-        Jika sudah upload foto:
-        hapus photo-placeholder, buka comment img di bawah, dan ganti nama file.
-        <img src="assets/images/profile.jpg" alt="Sari">
-        -->
-      </div>
-      <div class="photo-note">
-        <span>01 / A little introduction</span>
-        <span>Indonesia</span>
-      </div>
+    <div class="puzzle-detail" id="puzzleDetail" aria-live="polite">
+      <div class="eyebrow" id="puzzleEyebrow">Piece 01 / Understand</div><h3 id="puzzleTitle">Understand the bigger picture</h3><p id="puzzleDesc">My urban planning foundation trained me to look at places, systems, people, and how different factors influence one another before jumping to solutions.</p>
+      <div class="puzzle-tags" id="puzzleTags"><span>Urban & Regional Planning</span><span>Research</span><span>Systems Thinking</span><span>Analytical Thinking</span></div>
+      <div class="puzzle-evidence"><span class="evidence-label">Where this comes from</span><p id="puzzleEvidence">Education · Planning projects · Product research case studies</p></div>
+      <div class="puzzle-hint">Select another piece to explore ↗</div>
     </div>
   </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="wrap about-grid reveal">
-    <div>
-      <p class="kicker">01 / About</p>
-      <p class="about-label">A perspective shaped by different disciplines.</p>
-    </div>
-    <div class="about-copy">
-      <p>
-        My journey started with <strong>Urban & Regional Planning</strong>,
-        where I learned to understand places, systems, people, and the relationship
-        between them.
-      </p>
-      <p>
-        Working in project coordination taught me how to bring different
-        stakeholders together, make sense of complex needs, and turn plans
-        into execution.
-      </p>
-      <p>
-        Today, I bring those perspectives into product thinking.
-        I am interested in understanding the why behind problems,
-        connecting the dots, and building solutions that make sense for people
-        and businesses.
-      </p>
-    </div>
+</div></section>
+<section class="section projects" id="projects"><div class="wrap">
+  <div class="section-head reveal"><div class="eyebrow">04 / Selected Work</div><h2>Projects, cases &<br>things I’ve explored.</h2><p>A selection of product cases and learning projects. Open a project to see its overview. Detailed artifacts and links will be added as each case is reviewed.</p></div>
+  <div class="project-toolbar reveal"><button class="filter active" data-filter="all">All projects</button><button class="filter" data-filter="product">Product</button><button class="filter" data-filter="research">Research</button><button class="filter" data-filter="data">Data</button><button class="filter" data-filter="technical">Technical</button></div>
+  <div class="project-grid reveal">
+    <article class="project-card" data-category="product"><div class="project-cover cover-takar"><div class="cover-shape"></div><div class="cover-word">Takar<br>Untung</div><span class="cover-index">01</span></div><div class="project-info"><div class="project-meta"><span>Product concept</span><span>Business tools</span></div><h3>TakarUntung</h3><p>A product concept exploring how culinary micro-business owners can better understand costs, pricing, and profit.</p><button class="project-open" data-project="takar">Explore case ↗</button></div></article>
+    <article class="project-card" data-category="research product"><div class="project-cover cover-soco"><div class="cover-shape"></div><div class="cover-word">Click &<br>Collect</div><span class="cover-index">02</span></div><div class="project-info"><div class="project-meta"><span>Product research</span><span>Retail experience</span></div><h3>SOCO by Sociolla · Click & Collect</h3><p>Exploring friction in the Click & Collect journey and opportunities to improve the order confirmation experience.</p><button class="project-open" data-project="soco">Explore case ↗</button></div></article>
+    <article class="project-card" data-category="product"><div class="project-cover cover-pintar"><div class="cover-shape"></div><div class="cover-word">Pintar<br>Kelas</div><span class="cover-index">03</span></div><div class="project-info"><div class="project-meta"><span>Product case</span><span>Education</span></div><h3>PintarKelas</h3><p>A product case exploring an education-related problem and its potential solution.</p><button class="project-open" data-project="pintar">Explore case ↗</button></div></article>
+    <article class="project-card" data-category="research product"><div class="project-cover cover-fmcg"><div class="cover-shape"></div><div class="cover-word">FMCG<br>Case</div><span class="cover-index">04</span></div><div class="project-info"><div class="project-meta"><span>Business case</span><span>FMCG</span></div><h3>FMCG Case Study</h3><p>A business and product exploration within the fast-moving consumer goods space.</p><button class="project-open" data-project="fmcg">Explore case ↗</button></div></article>
+    <article class="project-card" data-category="technical"><div class="project-cover cover-midtrans"><div class="cover-shape"></div><div class="cover-word">Midtrans<br>SNAP</div><span class="cover-index">05</span></div><div class="project-info"><div class="project-meta"><span>Technical exploration</span><span>Payment integration</span></div><h3>Midtrans SNAP Integration</h3><p>Exploring payment integration flows, API capabilities, implementation considerations, and security.</p><button class="project-open" data-project="midtrans">Explore case ↗</button></div></article>
+    <article class="project-card" data-category="data"><div class="project-cover cover-dashboard"><div class="cover-shape"></div><div class="cover-word">Power BI<br>Dashboard</div><span class="cover-index">06</span></div><div class="project-info"><div class="project-meta"><span>Data analysis</span><span>Visualization</span></div><h3>Power BI Dashboard</h3><p>Practice turning a dataset into a dashboard that supports exploration and clearer decision-making.</p><button class="project-open" data-project="dashboard">Explore case ↗</button></div></article>
+    <article class="project-card" data-category="product research"><div class="project-cover cover-grab"><div class="cover-shape"></div><div class="cover-word">GrabFood<br>Case</div><span class="cover-index">07</span></div><div class="project-info"><div class="project-meta"><span>Product case</span><span>Food delivery</span></div><h3>GrabFood Case</h3><p>A product exploration around food delivery, user needs, and potential experience improvements.</p><button class="project-open" data-project="grab">Explore case ↗</button></div></article>
   </div>
-</section>
-
-<!-- JOURNEY -->
-<section class="journey" id="journey">
-  <div class="wrap">
-    <div class="reveal">
-      <p class="kicker">02 / Journey</p>
-      <h2 class="section-title">Different experiences.<br>One evolving perspective.</h2>
-      <p class="section-intro">
-        A few chapters that have shaped how I think, work, and approach problems.
-      </p>
-    </div>
-
-    <div class="journey-grid">
-      <article class="journey-item reveal">
-        <p class="number">01 / EDUCATION</p>
-        <h3>Urban & Regional Planning</h3>
-        <p>Learning to understand systems, spatial relationships, communities, and the bigger picture.</p>
-      </article>
-
-      <article class="journey-item reveal">
-        <p class="number">02 / EXPERIENCE</p>
-        <h3>Project Coordination</h3>
-        <p>Coordinating projects, stakeholders, deliverables, and processes across different working environments.</p>
-      </article>
-
-      <article class="journey-item reveal">
-        <p class="number">03 / EXPERIENCE</p>
-        <h3>Multi-stakeholder Projects</h3>
-        <p>Working with different teams and institutions, navigating requirements, and supporting project execution.</p>
-      </article>
-
-      <article class="journey-item reveal">
-        <p class="number">04 / LEARNING</p>
-        <h3>Business & Product</h3>
-        <p>Building product knowledge through structured learning and hands-on case projects.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- TOOLKIT -->
-<section id="toolkit">
-  <div class="wrap">
-    <div class="reveal">
-      <p class="kicker">03 / Toolkit</p>
-      <h2 class="section-title">What I bring<br>to the table.</h2>
-      <p class="section-intro">A mix of skills, perspectives, and tools developed through work and learning.</p>
-    </div>
-
-    <div class="toolkit-grid reveal">
-      <div class="tool-tabs">
-        <button class="tool-tab active" data-tool="planning">Planning & Systems <span>↗</span></button>
-        <button class="tool-tab" data-tool="people">Projects & People <span>↗</span></button>
-        <button class="tool-tab" data-tool="product">Product & Business <span>↗</span></button>
-        <button class="tool-tab" data-tool="data">Data & Tools <span>↗</span></button>
-      </div>
-
-      <div class="tool-panel" id="toolPanel">
-        <h3 id="toolTitle">Planning & Systems</h3>
-        <p id="toolDescription">Understanding how different elements connect, identifying gaps, and structuring complex information into a clear picture.</p>
-        <div class="skill-tags" id="skillTags">
-          <span>Systems Thinking</span>
-          <span>Research</span>
-          <span>Analytical Thinking</span>
-          <span>Problem Solving</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="projects" id="projects">
-  <div class="wrap">
-    <div class="project-head reveal">
-      <div>
-        <p class="kicker">04 / Selected Work</p>
-        <h2 class="section-title">Things I've worked<br>and learned through.</h2>
-      </div>
-    </div>
-    <p class="section-intro reveal">
-      Case studies, explorations, and projects that reflect how I approach problems.
-    </p>
-
-    <div class="filters reveal">
-      <button class="filter-btn active" data-filter="all">All work</button>
-      <button class="filter-btn" data-filter="product">Product</button>
-      <button class="filter-btn" data-filter="research">Research</button>
-      <button class="filter-btn" data-filter="data">Data</button>
-      <button class="filter-btn" data-filter="technical">Technical</button>
-    </div>
-
-    <div class="project-grid">
-      <article class="project-card reveal" data-category="product">
-        <div class="project-cover cover-takar">
-          <div class="cover-label">TakarUntung</div>
-        </div>
-        <div class="project-meta"><span>PRODUCT CONCEPT</span><span>01</span></div>
-        <h3>TakarUntung</h3>
-        <p>Exploring a product concept to help culinary businesses understand their costs, pricing, and profit.</p>
-        <span class="project-coming">Case study coming soon</span>
-      </article>
-
-      <article class="project-card reveal" data-category="research">
-        <div class="project-cover cover-soco">
-          <div class="cover-label">Click & Collect<br>Experience</div>
-        </div>
-        <div class="project-meta"><span>PRODUCT RESEARCH</span><span>02</span></div>
-        <h3>SOCO / Sociolla</h3>
-        <p>Exploring customer pain points in the Click & Collect journey and opportunities to improve the experience.</p>
-        <span class="project-coming">Case study coming soon</span>
-      </article>
-
-      <article class="project-card reveal" data-category="technical">
-        <div class="project-cover cover-midtrans">
-          <div class="cover-label">Payment<br>Integration</div>
-        </div>
-        <div class="project-meta"><span>TECHNICAL CASE</span><span>03</span></div>
-        <h3>Midtrans SNAP</h3>
-        <p>Understanding payment integration, API flows, transaction handling, and implementation considerations.</p>
-        <span class="project-coming">Case study coming soon</span>
-      </article>
-
-      <article class="project-card reveal" data-category="product">
-        <div class="project-cover cover-pintar">
-          <div class="cover-label">PintarKelas</div>
-        </div>
-        <div class="project-meta"><span>PRODUCT CASE</span><span>04</span></div>
-        <h3>PintarKelas</h3>
-        <p>A product case project. Details and deliverables will be added after portfolio review.</p>
-        <span class="project-coming">Case study coming soon</span>
-      </article>
-
-      <article class="project-card reveal" data-category="product">
-        <div class="project-cover cover-fmcg">
-          <div class="cover-label">FMCG<br>Product Case</div>
-        </div>
-        <div class="project-meta"><span>PRODUCT STRATEGY</span><span>05</span></div>
-        <h3>FMCG Case</h3>
-        <p>Product and business case exploration. Project scope and supporting materials to be updated.</p>
-        <span class="project-coming">Case study coming soon</span>
-      </article>
-
-      <article class="project-card reveal" data-category="data">
-        <div class="project-cover cover-dashboard">
-          <div class="cover-label">Data into<br>Insights</div>
-        </div>
-        <div class="project-meta"><span>DATA ANALYSIS</span><span>06</span></div>
-        <h3>Power BI Dashboard</h3>
-        <p>Exploring data visualization and dashboard design to make data easier to understand and use.</p>
-        <span class="project-coming">Case study coming soon</span>
-      </article>
-
-      <article class="project-card reveal" data-category="research">
-        <div class="project-cover cover-grab">
-          <div class="cover-label">GrabFood</div>
-        </div>
-        <div class="project-meta"><span>PRODUCT EXPLORATION</span><span>07</span></div>
-        <h3>GrabFood Case</h3>
-        <p>Product exploration and problem-solving case. Details to be reviewed before publishing.</p>
-        <span class="project-coming">Case study coming soon</span>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- SIDE QUESTS -->
-<section class="side-quests" id="sidequests">
-  <div class="wrap">
-    <div class="reveal">
-      <p class="kicker">05 / Side quests</p>
-      <h2 class="section-title">Curious by nature.<br>Intentional by choice.</h2>
-      <p class="section-intro">Outside of work and structured learning, I enjoy exploring ideas, learning new things, and reflecting along the way.</p>
-    </div>
-    <div class="side-quest-grid">
-      <article class="side-quest reveal">
-        <span>01 / CURIOSITY</span>
-        <h3>Always asking why.</h3>
-      </article>
-      <article class="side-quest reveal">
-        <span>02 / GROWTH</span>
-        <h3>Learning in progress.</h3>
-      </article>
-      <article class="side-quest reveal">
-        <span>03 / PERSPECTIVE</span>
-        <h3>Finding meaning in little things.</h3>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="wrap reveal">
-    <p class="kicker">06 / Let's connect</p>
-    <h2>Good conversations<br>can lead somewhere.</h2>
-    <p class="contact-copy">
-      Always open to connecting with people, exchanging ideas,
-      and exploring opportunities to build meaningful things together.
-    </p>
-
-    <div class="contact-links">
-      <!-- GANTI EMAIL DI BAWAH -->
-      <a href="mailto:YOUR_EMAIL_HERE">Email ↗</a>
-
-      <!-- GANTI LINK LINKEDIN DI BAWAH -->
-      <a href="YOUR_LINKEDIN_URL_HERE" target="_blank" rel="noopener">LinkedIn ↗</a>
-
-      <!-- LINK MENUJU PROJECT -->
-      <a href="#projects">More about my work ↗</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <span>SARI. © 2026</span>
-  <span>Understand · Build · Evolve</span>
-  <span>Made with curiosity.</span>
-</footer>
-
+</div></section>
+<section class="section interests" id="interests"><div class="wrap">
+  <div class="section-head reveal"><div class="eyebrow">05 / Beyond the work</div><h2>Planning mindset.<br>Product curiosity.</h2><p>Outside of work and structured learning, I enjoy exploring ideas, learning new things, and reflecting along the way.</p></div>
+  <div class="interest-grid reveal"><article class="interest-card"><div class="num">01 / PERSONAL GROWTH</div><h3>Learning about myself</h3><p>Making space to reflect, understand patterns, and keep growing with intention.</p></article><article class="interest-card"><div class="num">02 / CURIOSITY</div><h3>Exploring new ideas</h3><p>Following questions, discovering perspectives, and learning beyond what I already know.</p></article><article class="interest-card"><div class="num">03 / PERSPECTIVE</div><h3>Connecting the dots</h3><p>Finding meaning in experiences and noticing how seemingly different things relate.</p></article></div>
+</div></section>
+<section class="section contact" id="contact"><div class="wrap"><div class="contact-wrap reveal"><div class="eyebrow">06 / Let's connect</div><h2>Good conversations can lead somewhere.</h2><p>Always open to connecting with people, exchanging ideas, and exploring opportunities to build meaningful things together.</p><div class="contact-links"><a href="mailto:YOUR_EMAIL_HERE">Email ↗</a><a href="YOUR_LINKEDIN_URL_HERE" target="_blank" rel="noopener">LinkedIn ↗</a><a href="YOUR_NOTION_URL_HERE" target="_blank" rel="noopener">More about my work ↗</a></div></div></div></section>
+</main>
+<footer><div class="wrap footer-inner"><span>SARI. © 2026</span><span>Understand · Build · Evolve</span><span>Made with curiosity.</span></div></footer>
+<div class="modal" id="projectModal" role="dialog" aria-modal="true"><div class="modal-box"><button class="modal-close" id="modalClose" aria-label="Close">×</button><div class="eyebrow" id="modalEyebrow">Project overview</div><h2 id="modalTitle">Project title</h2><p id="modalBody">Project summary</p><div class="modal-note">This overview is a placeholder until we review the original Notion case and available materials. We will add verified details, process, deliverables, screenshots, and links here.</div></div></div>
 <script>
-// MOBILE MENU
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
-
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => navLinks.classList.remove('open'));
-});
-
-// TOOLKIT INTERACTION
-const toolData = {
-  planning: {
-    title: 'Planning & Systems',
-    description: 'Understanding how different elements connect, identifying gaps, and structuring complex information into a clear picture.',
-    tags: ['Systems Thinking', 'Research', 'Analytical Thinking', 'Problem Solving']
-  },
-  people: {
-    title: 'Projects & People',
-    description: 'Working with stakeholders, coordinating workstreams, managing expectations, and keeping execution moving.',
-    tags: ['Stakeholder Management', 'Project Coordination', 'Communication', 'Cross-functional Collaboration']
-  },
-  product: {
-    title: 'Product & Business',
-    description: 'Learning to connect user needs, business objectives, and product decisions through structured product thinking.',
-    tags: ['Product Discovery', 'Requirement Gathering', 'Product Strategy', 'Prioritization', 'User Experience']
-  },
-  data: {
-    title: 'Data & Tools',
-    description: 'Using tools to organize information, analyze data, communicate findings, and support decision-making.',
-    tags: ['Excel', 'Power BI', 'Figma', 'MySQL', 'Draw.io', 'Postman']
-  }
+const menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks');menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+const puzzleContent={
+ understand:{eyebrow:'Piece 01 / Understand',title:'Understand the bigger picture',desc:'My urban planning foundation trained me to look at places, systems, people, and how different factors influence one another before jumping to solutions.',tags:['Urban & Regional Planning','Research','Systems Thinking','Analytical Thinking'],evidence:'Education · Planning projects · Product research case studies'},
+ align:{eyebrow:'Piece 02 / Align',title:'Bring people and work together',desc:'Project coordination taught me to work across stakeholders, clarify needs, manage moving parts, and support teams in keeping work aligned toward shared deliverables.',tags:['Stakeholder Management','Project Coordination','Communication','Cross-functional Collaboration'],evidence:'15+ regional and national projects · 40+ stakeholder engagements'},
+ build:{eyebrow:'Piece 03 / Build',title:'Turn needs into structured solutions',desc:'Through bootcamp learning and case projects, I practice turning problem understanding into product requirements, user flows, prioritization, and solution concepts.',tags:['Product Discovery','Requirements','Product Planning','Wireframing · UX Basics'],evidence:'Product case projects · PRD · BRD · FSD · User flows · Wireframes'},
+ measure:{eyebrow:'Piece 04 / Measure',title:'Learn, test, and improve',desc:'I use data and experimentation to evaluate ideas, understand what works, and guide iteration. In the Sociolla Click & Collect case, I explored metrics and A/B testing as ways to assess potential improvements to the experience.',tags:['Data Analysis','Metrics','Experimentation','A/B Testing','Excel','Power BI'],evidence:'Sociolla Click & Collect case · A/B testing exploration · Dashboard practice'}
 };
-
-const toolTabs = document.querySelectorAll('.tool-tab');
-const toolTitle = document.getElementById('toolTitle');
-const toolDescription = document.getElementById('toolDescription');
-const skillTags = document.getElementById('skillTags');
-
-toolTabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    toolTabs.forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-
-    const data = toolData[tab.dataset.tool];
-    toolTitle.textContent = data.title;
-    toolDescription.textContent = data.description;
-    skillTags.innerHTML = data.tags.map(tag => `<span>${tag}</span>`).join('');
-  });
-});
-
-// PROJECT FILTER
-const filterBtns = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
-
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    const filter = btn.dataset.filter;
-    projectCards.forEach(card => {
-      const show = filter === 'all' || card.dataset.category === filter;
-      card.classList.toggle('hidden', !show);
-    });
-  });
-});
-
-// SCROLL REVEAL
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.puzzle-piece').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.puzzle-piece').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const c=puzzleContent[btn.dataset.piece];document.getElementById('puzzleEyebrow').textContent=c.eyebrow;document.getElementById('puzzleTitle').textContent=c.title;document.getElementById('puzzleDesc').textContent=c.desc;document.getElementById('puzzleTags').innerHTML=c.tags.map(t=>`<span>${t}</span>`).join('');document.getElementById('puzzleEvidence').textContent=c.evidence;}));
+document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;document.querySelectorAll('.project-card').forEach(card=>{card.classList.toggle('hidden',f!=='all'&&!card.dataset.category.split(' ').includes(f));});}));
+const projectInfo={takar:{title:'TakarUntung',type:'Product concept · Business tools',body:'A product concept exploring how culinary micro-business owners can better understand costs, pricing, and profit. We will add the verified problem statement, research, proposed solution, feature scope, and artifacts from the original portfolio.'},soco:{title:'SOCO by Sociolla · Click & Collect',type:'Product research · Retail experience',body:'A research case exploring friction in SOCO by Sociolla’s Click & Collect experience, including manual WhatsApp confirmation delays and opportunities to improve the order confirmation journey. Original research and evidence will be reviewed before publishing.'},pintar:{title:'PintarKelas',type:'Product case · Education',body:'An education-related product case from the portfolio. The case details, problem, role, process, and deliverables need to be checked against the original Notion material before final publication.'},fmcg:{title:'FMCG Case Study',type:'Business case · FMCG',body:'An FMCG case from the portfolio. We will confirm the exact company context, case prompt, analysis, recommendations, and artifacts from the source material.'},midtrans:{title:'Midtrans SNAP Integration',type:'Technical exploration · Payment integration',body:'An exploration of Midtrans SNAP, including payment APIs, transaction status, notifications, refund flows, implementation considerations, and security. We will link the original technical materials when ready.'},dashboard:{title:'Power BI Dashboard',type:'Data analysis · Visualization',body:'A dashboard project focused on practicing data exploration and visualization. The dataset, business questions, analysis, and screenshots will be added after reviewing the original work.'},grab:{title:'GrabFood Case',type:'Product case · Food delivery',body:'A product exploration related to GrabFood. The case prompt, user problem, analysis, recommendations, and artifacts will be confirmed against the original portfolio before publishing.'}};
+const modal=document.getElementById('projectModal');document.querySelectorAll('.project-open').forEach(btn=>btn.addEventListener('click',()=>{const p=projectInfo[btn.dataset.project];document.getElementById('modalEyebrow').textContent=p.type;document.getElementById('modalTitle').textContent=p.title;document.getElementById('modalBody').textContent=p.body;modal.classList.add('open');document.body.style.overflow='hidden';}));function closeModal(){modal.classList.remove('open');document.body.style.overflow=''}document.getElementById('modalClose').addEventListener('click',closeModal);modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
-
 </body>
 </html>
