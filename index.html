@@ -5,1381 +5,829 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sari | Portfolio</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root {
   --bg: #f7f7f5;
-  --surface: #eeeeeb;
-  --surface-dark: #e5e5e1;
-  --text: #262725;
-  --muted: #747671;
-  --border: #ddddda;
-  --accent: #62655f;
-  --white: #ffffff;
+  --text: #222321;
+  --muted: #777973;
+  --line: #deded9;
+  --dark: #242523;
+  --white: #fff;
+  --accent: #a7afa3;
   --radius: 18px;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--bg);
   color: var(--text);
-  font-size: 14px;
+  line-height: 1.7;
 }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+img { max-width: 100%; display: block; }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* NAVIGATION */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(247,247,245,.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
 }
-
-button {
-  font-family: inherit;
-}
-
-.container {
-  width: min(1160px, 88%);
+.nav-inner {
+  max-width: 1440px;
   margin: auto;
-}
-
-.topbar {
+  padding: 18px 5%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  height: 84px;
-  border-bottom: 1px solid var(--border);
+  align-items: center;
 }
-
-.brand {
+.logo {
+  font-weight: 800;
   font-size: 20px;
-  font-weight: 700;
   letter-spacing: -1px;
 }
-
-.nav {
+.nav-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 27px;
 }
-
-.nav a {
-  color: var(--muted);
+.nav-links a {
   font-size: 12px;
+  color: var(--muted);
   transition: color .2s;
 }
-
-.nav a:hover {
-  color: var(--text);
-}
-
-.menu-btn {
+.nav-links a:hover { color: var(--text); }
+.menu-toggle {
   display: none;
-  border: 0;
-  background: none;
-  font-size: 22px;
+  border: 1px solid var(--line);
+  background: transparent;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
   cursor: pointer;
 }
 
-.hero {
-  min-height: 690px;
-  padding: 95px 0 80px;
-  display: grid;
-  grid-template-columns: 1.15fr .85fr;
-  align-items: center;
-  gap: 75px;
-}
-
+/* GENERAL */
+.wrap { width: min(1240px, 90%); margin: auto; }
+section { padding: 110px 0; scroll-margin-top: 80px; }
 .kicker {
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 2px;
   text-transform: uppercase;
-}
-
-.hero h1 {
-  font-size: clamp(48px, 7vw, 88px);
-  line-height: 1.17;
-  letter-spacing: -4px;
-  font-weight: 600;
-  margin: 25px 0;
-}
-
-.hero h1 span {
-  color: #8c8e88;
-}
-
-.hero-description {
-  max-width: 540px;
+  letter-spacing: 2.5px;
+  font-size: 10px;
   color: var(--muted);
-  line-height: 2;
+  margin-bottom: 20px;
+}
+.section-title {
+  font-size: clamp(35px, 5vw, 65px);
+  line-height: 1.12;
+  letter-spacing: -3px;
+  font-weight: 600;
+  max-width: 850px;
+}
+.section-intro {
+  color: var(--muted);
+  max-width: 620px;
+  margin-top: 22px;
   font-size: 14px;
 }
-
-.hero-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 32px;
-  flex-wrap: wrap;
-}
-
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 22px;
   border: 1px solid var(--text);
   border-radius: 100px;
-  padding: 13px 21px;
   font-size: 12px;
-  transition: all .25s;
-  cursor: pointer;
+  transition: .25s;
+}
+.btn-dark { background: var(--dark); color: white; }
+.btn-light { background: transparent; }
+.btn:hover { transform: translateY(-3px); }
+.text-link {
+  display: inline-block;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 4px;
+  font-size: 12px;
 }
 
-.btn-dark {
-  background: var(--text);
-  color: var(--bg);
+/* HERO */
+.hero { padding: 85px 0 100px; min-height: 80vh; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap: 65px;
+  align-items: center;
 }
-
-.btn-light {
-  background: transparent;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-}
-
-.hero-note {
-  margin-top: 55px;
+.hero-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
   color: var(--muted);
-  font-size: 11px;
+  margin-bottom: 28px;
 }
-
-.hero-note span {
-  color: var(--text);
+.hero h1 {
+  font-size: clamp(55px, 8.3vw, 112px);
+  line-height: .98;
+  letter-spacing: -7px;
+  font-weight: 700;
 }
-
-.portrait-wrap {
-  position: relative;
-  max-width: 390px;
-  justify-self: end;
-  width: 100%;
+.hero h1 span { color: #92958f; }
+.hero-copy {
+  max-width: 560px;
+  color: #626560;
+  font-size: 14px;
+  margin-top: 28px;
 }
-
-.portrait {
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.photo-frame {
   aspect-ratio: 4 / 5;
-  border-radius: 180px 180px 14px 14px;
-  background: #e6e6e1;
+  background: #e6e7e2;
+  border-radius: 48% 48% 18px 18px;
   overflow: hidden;
   position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
-
-/* Replace this placeholder with your portrait image later */
-.portrait-placeholder {
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.photo-placeholder {
   text-align: center;
-  color: #8b8d86;
-  padding: 25px;
+  color: #90938d;
 }
-
-.portrait-placeholder strong {
+.photo-placeholder strong {
+  font-size: 90px;
+  font-weight: 600;
+  line-height: 1;
   display: block;
-  font-size: 65px;
-  font-weight: 500;
-  letter-spacing: -5px;
 }
-
-.portrait-placeholder small {
-  display: block;
-  font-size: 10px;
+.photo-placeholder small {
+  font-size: 9px;
   letter-spacing: 2px;
-  margin-top: 8px;
+  text-transform: uppercase;
 }
-
-.portrait-caption {
+.photo-note {
   display: flex;
   justify-content: space-between;
-  margin-top: 13px;
-  font-size: 10px;
+  font-size: 9px;
   color: var(--muted);
+  padding-top: 10px;
 }
 
-.side-label {
-  position: absolute;
-  top: 45%;
-  right: -48px;
-  writing-mode: vertical-rl;
-  color: var(--muted);
-  font-size: 10px;
-  letter-spacing: 2px;
+/* ABOUT */
+.about { border-top: 1px solid var(--line); }
+.about-grid {
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: 70px;
 }
-
-.section {
-  padding: 110px 0;
-  border-top: 1px solid var(--border);
+.about-label { font-size: 12px; color: var(--muted); }
+.about-copy {
+  font-size: clamp(20px, 2.5vw, 30px);
+  line-height: 1.55;
+  letter-spacing: -.7px;
 }
+.about-copy p + p { margin-top: 22px; }
+.about-copy strong { font-weight: 600; }
 
-.section-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 40px;
-  margin-bottom: 60px;
-}
-
-.section-title {
-  font-size: clamp(36px, 5vw, 62px);
-  font-weight: 500;
-  letter-spacing: -3px;
-  line-height: 1.25;
-  margin-top: 18px;
-}
-
-.section-intro {
-  max-width: 400px;
-  color: var(--muted);
-  line-height: 1.9;
-  font-size: 13px;
-}
-
-.about-layout {
+/* JOURNEY */
+.journey { background: #ecece8; }
+.journey-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 18px;
+  margin-top: 50px;
 }
-
-.about-copy {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 2.1;
-}
-
-.about-copy p + p {
-  margin-top: 22px;
-}
-
-.about-quote {
-  font-size: 23px;
-  font-weight: 500;
-  letter-spacing: -.6px;
-  line-height: 1.8;
-  padding: 35px;
-  background: var(--surface);
+.journey-item {
+  background: var(--bg);
   border-radius: var(--radius);
+  padding: 28px;
+  min-height: 210px;
 }
-
-.about-quote span {
-  color: #858781;
+.journey-item .number {
+  font-size: 10px;
+  color: var(--muted);
+  margin-bottom: 35px;
 }
-
-.ipo-section {
-  margin-top: 75px;
+.journey-item h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
+.journey-item p { color: var(--muted); font-size: 12px; }
 
-.ipo-heading {
+/* TOOLKIT */
+.toolkit-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 65px;
+  margin-top: 55px;
+}
+.tool-tabs { display: flex; flex-direction: column; }
+.tool-tab {
+  padding: 18px 0;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
-  align-items: end;
-  margin-bottom: 22px;
+  font-size: 14px;
 }
-
-.ipo-heading p {
-  color: var(--muted);
+.tool-tab.active { color: var(--text); }
+.tool-panel {
+  padding: 30px;
+  background: #ecece8;
+  border-radius: var(--radius);
+  min-height: 300px;
+}
+.tool-panel h3 { font-size: 28px; margin-bottom: 12px; }
+.tool-panel p { color: var(--muted); font-size: 13px; max-width: 550px; }
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 25px;
+}
+.skill-tags span {
+  padding: 9px 14px;
+  border: 1px solid #d4d5cf;
+  border-radius: 100px;
   font-size: 11px;
 }
 
-.ipo-grid {
+/* PROJECTS */
+.projects { border-top: 1px solid var(--line); }
+.project-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+}
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 38px 0;
+}
+.filter-btn {
+  border: 1px solid var(--line);
+  background: transparent;
+  padding: 9px 16px;
+  border-radius: 100px;
+  font-size: 11px;
+  color: var(--muted);
+  cursor: pointer;
+}
+.filter-btn.active {
+  background: var(--dark);
+  color: white;
+  border-color: var(--dark);
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.project-card { transition: transform .25s; }
+.project-card:hover { transform: translateY(-5px); }
+.project-cover {
+  border-radius: var(--radius);
+  min-height: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 35px;
+  overflow: hidden;
+  position: relative;
+}
+.project-cover .cover-label {
+  text-align: center;
+  font-size: clamp(24px, 4vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -2px;
+  font-weight: 600;
+  max-width: 350px;
+}
+.cover-takar { background: #e8e2d2; color: #514a39; }
+.cover-soco { background: #f3d9df; color: #6e3949; }
+.cover-midtrans { background: #dce6f2; color: #244c78; }
+.cover-pintar { background: #e1e4d4; color: #43513b; }
+.cover-fmcg { background: #e7d9c9; color: #674e38; }
+.cover-dashboard { background: #d9dfdc; color: #394a44; }
+.cover-grab { background: #dce8d7; color: #31563b; }
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 17px;
+}
+.project-card h3 { font-size: 21px; font-weight: 600; margin-top: 5px; }
+.project-card p { color: var(--muted); font-size: 12px; margin-top: 8px; }
+.project-card.hidden { display: none; }
+.project-coming {
+  display: inline-block;
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 12px;
+}
+
+/* SIDE QUEST */
+.side-quests { background: var(--dark); color: var(--bg); }
+.side-quests .kicker { color: #a9aca7; }
+.side-quests .section-intro { color: #c1c3bf; }
+.side-quest-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
+  margin-top: 45px;
 }
-
-.ipo-card {
-  background: var(--surface);
+.side-quest {
   padding: 28px;
+  border: 1px solid #4a4c49;
   border-radius: var(--radius);
-  min-height: 225px;
-  transition: transform .25s;
+  min-height: 200px;
 }
+.side-quest span { font-size: 10px; color: #a9aca7; }
+.side-quest h3 { font-size: 20px; margin-top: 25px; font-weight: 500; }
 
-.ipo-card:hover {
-  transform: translateY(-5px);
+/* CONTACT */
+.contact {
+  background: var(--dark);
+  color: var(--bg);
+  padding: 100px 0 80px;
 }
-
-.ipo-card .num {
-  font-size: 10px;
-  color: var(--muted);
-  letter-spacing: 1px;
+.contact .kicker { color: #a9aca7; }
+.contact h2 {
+  font-size: clamp(44px, 8vw, 105px);
+  line-height: 1.08;
+  letter-spacing: -5px;
+  font-weight: 600;
+  max-width: 1000px;
 }
-
-.ipo-card h3 {
-  font-size: 23px;
-  font-weight: 500;
-  margin: 35px 0 12px;
-}
-
-.ipo-card p {
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.8;
-}
-
-/* Journey */
-.journey {
-  position: relative;
-  border-left: 1px solid var(--border);
-  margin-left: 8px;
-}
-
-.journey-item {
-  padding: 0 0 48px 35px;
-  position: relative;
-  display: grid;
-  grid-template-columns: 170px 1fr;
-  gap: 35px;
-}
-
-.journey-item:last-child {
-  padding-bottom: 0;
-}
-
-.journey-item::before {
-  content: "";
-  width: 9px;
-  height: 9px;
-  background: var(--bg);
-  border: 1px solid var(--accent);
-  border-radius: 50%;
-  position: absolute;
-  left: -5px;
-  top: 5px;
-}
-
-.journey-date {
-  color: var(--muted);
-  font-size: 11px;
-}
-
-.journey-content h3 {
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 12px;
-}
-
-.journey-content p {
-  color: var(--muted);
-  line-height: 1.9;
-  max-width: 650px;
-}
-
-.journey-tags {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 18px;
-}
-
-.journey-tags span {
-  border: 1px solid var(--border);
-  padding: 6px 11px;
-  border-radius: 50px;
-  color: var(--muted);
-  font-size: 10px;
-}
-
-/* Skill explorer */
-.skill-intro {
-  color: var(--muted);
-  line-height: 1.9;
-  margin-bottom: 25px;
-  font-size: 12px;
-}
-
-.skill-explorer {
-  display: grid;
-  grid-template-columns: 250px 1fr;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.skill-tabs {
-  background: var(--surface);
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-
-.skill-tab {
-  border: 0;
-  background: transparent;
-  text-align: left;
-  padding: 15px;
-  cursor: pointer;
-  border-radius: 12px;
-  font-size: 12px;
-  color: var(--muted);
-  transition: .2s;
-}
-
-.skill-tab:hover,
-.skill-tab.active {
-  background: var(--bg);
-  color: var(--text);
-}
-
-.skill-display {
-  padding: 40px;
-  min-height: 320px;
-}
-
-.skill-display h3 {
-  font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 15px;
-}
-
-.skill-display p {
-  max-width: 600px;
-  color: var(--muted);
-  line-height: 1.9;
+.contact-copy {
+  color: #c1c3bf;
   font-size: 13px;
-}
-
-.skill-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  max-width: 550px;
   margin-top: 25px;
 }
-
-.skill-chips span {
-  background: var(--surface);
-  border-radius: 50px;
-  padding: 10px 15px;
-  font-size: 11px;
-}
-
-/* Work */
-.work-filter {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 35px;
-}
-
-.filter-btn {
-  border: 1px solid var(--border);
-  background: transparent;
-  padding: 9px 15px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 11px;
-  color: var(--muted);
-  transition: .2s;
-}
-
-.filter-btn.active,
-.filter-btn:hover {
-  background: var(--text);
-  color: var(--bg);
-  border-color: var(--text);
-}
-
-.work-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 45px 25px;
-}
-
-.work-card {
-  display: block;
-}
-
-.work-card.hidden {
-  display: none;
-}
-
-.work-cover {
-  position: relative;
-  height: 360px;
-  border-radius: var(--radius);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform .3s;
-}
-
-.work-card:hover .work-cover {
-  transform: translateY(-4px);
-}
-
-.cover-inner {
-  width: 78%;
-  height: 72%;
-  background: rgba(255,255,255,.55);
-  border-radius: 10px;
-  padding: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transform: rotate(-2deg);
-  transition: transform .3s;
-  box-shadow: 0 15px 40px rgba(0,0,0,.04);
-}
-
-.work-card:hover .cover-inner {
-  transform: rotate(0deg) scale(1.02);
-}
-
-.cover-small {
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  opacity: .65;
-}
-
-.cover-title {
-  font-size: 30px;
-  font-weight: 600;
-  letter-spacing: -1.5px;
-}
-
-.cover-bottom {
-  font-size: 10px;
-  opacity: .7;
-}
-
-.cover-takaruntung {
-  background: #e6dfd0;
-  color: #655c46;
-}
-
-.cover-soco {
-  background: #ead9df;
-  color: #8b5f72;
-}
-
-.cover-pintarkelas {
-  background: #dce5ec;
-  color: #4e6a80;
-}
-
-.cover-fmcg {
-  background: #e3e5d9;
-  color: #5b6650;
-}
-
-.cover-midtrans {
-  background: #e5e1ea;
-  color: #62567c;
-}
-
-.cover-grabfood {
-  background: #e9e5d7;
-  color: #6e6848;
-}
-
-.cover-powerbi {
-  background: #dededb;
-  color: #575851;
-}
-
-.work-info {
-  padding: 20px 3px 0;
-}
-
-.work-meta {
-  display: flex;
-  justify-content: space-between;
-  color: var(--muted);
-  font-size: 10px;
-  letter-spacing: .5px;
-}
-
-.work-info h3 {
-  font-size: 20px;
-  font-weight: 500;
-  margin: 12px 0 8px;
-}
-
-.work-info p {
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.9;
-  max-width: 480px;
-}
-
-.work-link {
-  display: inline-block;
-  margin-top: 15px;
-  font-size: 11px;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 4px;
-}
-
-/* Side quests */
-.sidequests {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 14px;
-}
-
-.quest {
-  padding: 25px;
-  min-height: 180px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  transition: .25s;
-}
-
-.quest:hover {
-  background: var(--surface);
-  transform: translateY(-4px);
-}
-
-.quest small {
-  color: var(--muted);
-  font-size: 10px;
-}
-
-.quest h3 {
-  margin: 25px 0 10px;
-  font-weight: 500;
-  font-size: 16px;
-}
-
-.quest p {
-  font-size: 11px;
-  line-height: 1.8;
-  color: var(--muted);
-}
-
-/* Contact */
-.contact {
-  background: var(--text);
-  color: var(--bg);
-  padding: 100px 0;
-}
-
-.contact .kicker {
-  color: #b7b9b3;
-}
-
-.contact h2 {
-  font-size: clamp(42px, 7vw, 82px);
-  font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: -4px;
-  margin: 22px 0;
-}
-
-.contact p {
-  color: #c3c5bf;
-  line-height: 1.9;
-  max-width: 520px;
-}
-
 .contact-links {
   display: flex;
-  gap: 22px;
+  gap: 30px;
   flex-wrap: wrap;
   margin-top: 35px;
 }
-
 .contact-links a {
   font-size: 12px;
-  border-bottom: 1px solid #777973;
-  padding-bottom: 5px;
+  border-bottom: 1px solid #747672;
+  padding-bottom: 7px;
+  transition: opacity .2s;
 }
+.contact-links a:hover { opacity: .65; }
 
-.footer {
-  padding: 25px 0;
+/* FOOTER */
+footer {
+  background: var(--bg);
+  color: var(--muted);
+  padding: 23px 5%;
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  color: var(--muted);
   font-size: 10px;
 }
 
-/* Interaction */
+/* ANIMATION */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity .65s, transform .65s;
+  transition: opacity .65s ease, transform .65s ease;
 }
-
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-@media(max-width: 850px) {
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 50px;
-    padding-top: 65px;
-  }
-
-  .portrait-wrap {
-    justify-self: center;
-    max-width: 350px;
-  }
-
-  .section-top {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .about-layout {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .skill-explorer {
-    grid-template-columns: 1fr;
-  }
-
-  .skill-tabs {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .skill-tab {
-    flex: 1;
-    text-align: center;
-  }
-
-  .sidequests {
-    grid-template-columns: 1fr 1fr;
-  }
+/* RESPONSIVE */
+@media (max-width: 850px) {
+  .hero-grid { grid-template-columns: 1fr .65fr; gap: 35px; }
+  .hero h1 { letter-spacing: -4px; }
+  .about-grid, .toolkit-grid { grid-template-columns: 1fr; gap: 30px; }
+  .project-cover { min-height: 260px; }
 }
-
-@media(max-width: 600px) {
-  .container {
-    width: 90%;
-  }
-
-  .topbar {
-    height: 72px;
-  }
-
-  .menu-btn {
-    display: block;
-  }
-
-  .nav {
+@media (max-width: 650px) {
+  .nav-inner { padding: 14px 5%; }
+  .menu-toggle { display: block; }
+  .nav-links {
     display: none;
     position: absolute;
-    z-index: 10;
-    top: 72px;
-    left: 0;
-    right: 0;
+    left: 0; right: 0; top: 100%;
     background: var(--bg);
-    padding: 25px 5%;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--line);
+    padding: 20px 5%;
     flex-direction: column;
     align-items: flex-start;
+    gap: 18px;
   }
-
-  .nav.open {
-    display: flex;
-  }
-
-  .hero h1 {
-    letter-spacing: -2.5px;
-  }
-
-  .hero {
-    padding: 60px 0;
-    min-height: auto;
-  }
-
-  .side-label {
-    right: -30px;
-  }
-
-  .section {
-    padding: 75px 0;
-  }
-
-  .section-title {
-    letter-spacing: -2px;
-  }
-
-  .ipo-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .ipo-card {
-    min-height: 175px;
-  }
-
-  .ipo-heading {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .journey-item {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding-left: 25px;
-  }
-
-  .skill-display {
-    padding: 25px;
-  }
-
-  .work-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .work-cover {
-    height: 280px;
-  }
-
-  .sidequests {
-    grid-template-columns: 1fr;
-  }
-
-  .contact {
-    padding: 75px 0;
-  }
-
-  .contact h2 {
-    letter-spacing: -2px;
-  }
-
-  .footer {
-    flex-direction: column;
-  }
+  .nav-links.open { display: flex; }
+  section { padding: 75px 0; }
+  .hero { padding-top: 60px; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: clamp(54px, 15vw, 80px); }
+  .hero-photo { max-width: 310px; }
+  .section-title { letter-spacing: -1.8px; }
+  .journey-grid, .project-grid { grid-template-columns: 1fr; }
+  .project-cover { min-height: 260px; }
+  .side-quest-grid { grid-template-columns: 1fr; }
+  .contact h2 { letter-spacing: -2px; }
+  footer { flex-direction: column; gap: 8px; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
-<header class="topbar">
-  <a href="#" class="brand">SARI<span>.</span></a>
-
-  <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
-
-  <nav class="nav" id="nav">
-    <a href="#about">About</a>
-    <a href="#journey">Journey</a>
-    <a href="#toolkit">Toolkit</a>
-    <a href="#work">Projects</a>
-    <a href="#sidequests">Side quests</a>
-    <a href="#contact">Contact ↗</a>
-  </nav>
+<!-- NAVIGATION -->
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="logo">SARI.</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#journey">Journey</a>
+      <a href="#toolkit">Toolkit</a>
+      <a href="#projects">Projects</a>
+      <a href="#sidequests">Side quests</a>
+      <a href="#contact">Contact ↗</a>
+    </nav>
+  </div>
 </header>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-content reveal">
-    <p class="kicker">Urban Planning · Project Coordination · Product</p>
-
-    <h1>Understand.<br>Build.<br><span>Evolve.</span></h1>
-
-    <p class="hero-description">
-      I see connections between people, processes, and bigger-picture problems.
-      My background in urban planning and project coordination shapes how I approach
-      product challenges: with curiosity, structure, and a perspective that looks beyond the obvious.
-    </p>
-
-    <div class="hero-actions">
-      <a class="btn btn-dark" href="#work">Explore my work ↗</a>
-      <a class="btn btn-light" href="#about">A little about me</a>
-    </div>
-
-    <p class="hero-note">
-      Currently exploring the intersection of <span>business, people & product.</span>
-    </p>
-  </div>
-
-  <div class="portrait-wrap reveal">
-    <div class="portrait">
-      <div class="portrait-placeholder">
-        <strong>S.</strong>
-        <small>YOUR PHOTO GOES HERE</small>
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <p class="hero-label">Urban Planning · Project Coordination · Product</p>
+      <h1>Understand.<br>Build.<br><span>Evolve.</span></h1>
+      <p class="hero-copy">
+        I see connections between people, processes, and bigger-picture problems.
+        My background in urban planning and project coordination shapes how I
+        approach product challenges: with curiosity, structure, and a perspective
+        that looks beyond the obvious.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-dark">Explore my work ↗</a>
+        <a href="#about" class="btn btn-light">A little about me</a>
       </div>
     </div>
-    <div class="portrait-caption">
-      <span>01 — A little introduction</span>
-      <span>Indonesia</span>
+
+    <div class="hero-photo reveal">
+      <div class="photo-frame">
+        <!-- GANTI src DENGAN FOTO KAMU -->
+        <div class="photo-placeholder">
+          <strong>S.</strong>
+          <small>Your photo goes here</small>
+        </div>
+        <!--
+        Jika sudah upload foto:
+        hapus photo-placeholder, buka comment img di bawah, dan ganti nama file.
+        <img src="assets/images/profile.jpg" alt="Sari">
+        -->
+      </div>
+      <div class="photo-note">
+        <span>01 / A little introduction</span>
+        <span>Indonesia</span>
+      </div>
     </div>
-    <span class="side-label">CURIOUS BY NATURE · INTENTIONAL BY CHOICE</span>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="section" id="about">
-  <div class="section-top reveal">
+<section class="about" id="about">
+  <div class="wrap about-grid reveal">
     <div>
-      <p class="kicker">01 / About me</p>
-      <h2 class="section-title">Different experiences.<br>One way of thinking.</h2>
+      <p class="kicker">01 / About</p>
+      <p class="about-label">A perspective shaped by different disciplines.</p>
     </div>
-    <p class="section-intro">
-      I didn't start in product. I started by learning how to understand complex environments,
-      work with different people, and turn moving pieces into something structured.
-    </p>
-  </div>
-
-  <div class="about-layout reveal">
     <div class="about-copy">
       <p>
-        My foundation in Urban and Regional Planning taught me to look at systems,
-        relationships, and the bigger picture. Working as a Project Coordinator strengthened
-        that perspective through real projects, stakeholder needs, execution challenges,
-        and deliverables that had to come together.
+        My journey started with <strong>Urban & Regional Planning</strong>,
+        where I learned to understand places, systems, people, and the relationship
+        between them.
       </p>
       <p>
-        As I explored Product Management, I found familiar ways of thinking in a different context.
-        Understanding problems, asking questions, prioritizing needs, and turning insights into
-        practical solutions are things I have been building throughout my journey.
+        Working in project coordination taught me how to bring different
+        stakeholders together, make sense of complex needs, and turn plans
+        into execution.
       </p>
       <p>
-        I bring those experiences together with what I continue to learn about product,
-        business, data, and technology.
+        Today, I bring those perspectives into product thinking.
+        I am interested in understanding the why behind problems,
+        connecting the dots, and building solutions that make sense for people
+        and businesses.
       </p>
-    </div>
-
-    <div class="about-quote">
-      "I don't see my past experience as something to leave behind.
-      <span>I see it as another lens to bring into the way I build.</span>"
-    </div>
-  </div>
-
-  <div class="ipo-section reveal">
-    <div class="ipo-heading">
-      <h3>How I approach things</h3>
-      <p>A mindset I carry into every challenge.</p>
-    </div>
-
-    <div class="ipo-grid">
-      <div class="ipo-card">
-        <span class="num">01 / INPUT</span>
-        <h3>Understand</h3>
-        <p>Collect context, listen to people, observe what is happening, and question assumptions.</p>
-      </div>
-
-      <div class="ipo-card">
-        <span class="num">02 / PROCESS</span>
-        <h3>Connect</h3>
-        <p>Analyze what I find, identify patterns, understand constraints, and explore possibilities.</p>
-      </div>
-
-      <div class="ipo-card">
-        <span class="num">03 / OUTPUT</span>
-        <h3>Build</h3>
-        <p>Turn understanding into structured decisions, deliverables, and solutions that move things forward.</p>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- JOURNEY -->
-<section class="section" id="journey">
-  <div class="section-top reveal">
-    <div>
-      <p class="kicker">02 / My journey</p>
-      <h2 class="section-title">Experience that<br>shapes perspective.</h2>
+<section class="journey" id="journey">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kicker">02 / Journey</p>
+      <h2 class="section-title">Different experiences.<br>One evolving perspective.</h2>
+      <p class="section-intro">
+        A few chapters that have shaped how I think, work, and approach problems.
+      </p>
     </div>
-    <p class="section-intro">
-      Every chapter added a different piece to the way I think, work, and approach challenges today.
-    </p>
-  </div>
 
-  <div class="journey reveal">
-
-    <div class="journey-item">
-      <div class="journey-date">EDUCATION</div>
-      <div class="journey-content">
+    <div class="journey-grid">
+      <article class="journey-item reveal">
+        <p class="number">01 / EDUCATION</p>
         <h3>Urban & Regional Planning</h3>
-        <p>
-          Learned to understand places as interconnected systems, conduct research,
-          analyze conditions, consider stakeholder needs, and develop structured plans.
-        </p>
-        <div class="journey-tags">
-          <span>Systems Thinking</span>
-          <span>Research</span>
-          <span>Spatial Analysis</span>
-          <span>Planning</span>
-        </div>
-      </div>
-    </div>
+        <p>Learning to understand systems, spatial relationships, communities, and the bigger picture.</p>
+      </article>
 
-    <div class="journey-item">
-      <div class="journey-date">PROFESSIONAL EXPERIENCE</div>
-      <div class="journey-content">
-        <h3>Project Coordinator · CV Tamara Engineering</h3>
-        <p>
-          Coordinated regional and national-scale projects, supported planning deliverables,
-          worked with multiple stakeholders, managed documentation, and helped keep execution
-          aligned across workstreams.
-        </p>
-        <div class="journey-tags">
-          <span>Project Coordination</span>
-          <span>Stakeholder Management</span>
-          <span>Quality Review</span>
-          <span>Documentation</span>
-        </div>
-      </div>
-    </div>
+      <article class="journey-item reveal">
+        <p class="number">02 / EXPERIENCE</p>
+        <h3>Project Coordination</h3>
+        <p>Coordinating projects, stakeholders, deliverables, and processes across different working environments.</p>
+      </article>
 
-    <div class="journey-item">
-      <div class="journey-date">PROFESSIONAL EXPERIENCE</div>
-      <div class="journey-content">
-        <h3>Project Experience · SUCOFINDO</h3>
-        <p>
-          Supported project activities and coordination in a professional environment,
-          contributing to structured execution, communication, and project documentation.
-        </p>
-        <div class="journey-tags">
-          <span>Coordination</span>
-          <span>Communication</span>
-          <span>Project Support</span>
-        </div>
-      </div>
-    </div>
+      <article class="journey-item reveal">
+        <p class="number">03 / EXPERIENCE</p>
+        <h3>Multi-stakeholder Projects</h3>
+        <p>Working with different teams and institutions, navigating requirements, and supporting project execution.</p>
+      </article>
 
-    <div class="journey-item">
-      <div class="journey-date">PROFESSIONAL DEVELOPMENT</div>
-      <div class="journey-content">
-        <h3>Business Analyst & Product Strategy</h3>
-        <p>
-          Strengthened my foundation in product discovery, business analysis,
-          requirements, prioritization, UX, data analysis, experimentation,
-          and product development through structured learning and hands-on projects.
-        </p>
-        <div class="journey-tags">
-          <span>Product Management</span>
-          <span>Business Analysis</span>
-          <span>Data</span>
-          <span>Product Strategy</span>
-        </div>
-      </div>
+      <article class="journey-item reveal">
+        <p class="number">04 / LEARNING</p>
+        <h3>Business & Product</h3>
+        <p>Building product knowledge through structured learning and hands-on case projects.</p>
+      </article>
     </div>
-
   </div>
 </section>
 
 <!-- TOOLKIT -->
-<section class="section" id="toolkit">
-  <div class="section-top reveal">
-    <div>
-      <p class="kicker">03 / My toolkit</p>
-      <h2 class="section-title">Different lenses.<br>Complementary strengths.</h2>
-    </div>
-    <p class="section-intro">
-      Explore the skills and perspectives I bring together.
-      Select an area to see what's behind it.
-    </p>
-  </div>
-
-  <p class="skill-intro reveal">SELECT AN AREA TO EXPLORE ↘</p>
-
-  <div class="skill-explorer reveal">
-    <div class="skill-tabs">
-      <button class="skill-tab active" data-skill="planning">Planning & Systems</button>
-      <button class="skill-tab" data-skill="projects">Projects & People</button>
-      <button class="skill-tab" data-skill="product">Product & Business</button>
-      <button class="skill-tab" data-skill="data">Data & Tools</button>
+<section id="toolkit">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kicker">03 / Toolkit</p>
+      <h2 class="section-title">What I bring<br>to the table.</h2>
+      <p class="section-intro">A mix of skills, perspectives, and tools developed through work and learning.</p>
     </div>
 
-    <div class="skill-display" id="skillDisplay">
-      <h3>Planning & Systems</h3>
-      <p>
-        My planning background helps me understand interconnected systems,
-        evaluate context, identify issues, and see how decisions affect
-        different stakeholders and the bigger picture.
-      </p>
-      <div class="skill-chips">
-        <span>Systems Thinking</span>
-        <span>Research</span>
-        <span>Problem Analysis</span>
-        <span>Spatial Planning</span>
-        <span>Structured Thinking</span>
+    <div class="toolkit-grid reveal">
+      <div class="tool-tabs">
+        <button class="tool-tab active" data-tool="planning">Planning & Systems <span>↗</span></button>
+        <button class="tool-tab" data-tool="people">Projects & People <span>↗</span></button>
+        <button class="tool-tab" data-tool="product">Product & Business <span>↗</span></button>
+        <button class="tool-tab" data-tool="data">Data & Tools <span>↗</span></button>
+      </div>
+
+      <div class="tool-panel" id="toolPanel">
+        <h3 id="toolTitle">Planning & Systems</h3>
+        <p id="toolDescription">Understanding how different elements connect, identifying gaps, and structuring complex information into a clear picture.</p>
+        <div class="skill-tags" id="skillTags">
+          <span>Systems Thinking</span>
+          <span>Research</span>
+          <span>Analytical Thinking</span>
+          <span>Problem Solving</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SELECTED WORK -->
-<section class="section" id="work">
-  <div class="section-top reveal">
-    <div>
-      <p class="kicker">04 / Selected work</p>
-      <h2 class="section-title">A closer look at<br>what I've worked on.</h2>
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="wrap">
+    <div class="project-head reveal">
+      <div>
+        <p class="kicker">04 / Selected Work</p>
+        <h2 class="section-title">Things I've worked<br>and learned through.</h2>
+      </div>
     </div>
-    <p class="section-intro">
-      Different challenges, different contexts, different ways of approaching a problem.
-      Take a look around.
+    <p class="section-intro reveal">
+      Case studies, explorations, and projects that reflect how I approach problems.
     </p>
-  </div>
 
-  <div class="work-filter reveal">
-    <button class="filter-btn active" data-filter="all">All projects</button>
-    <button class="filter-btn" data-filter="product">Product</button>
-    <button class="filter-btn" data-filter="research">Research</button>
-    <button class="filter-btn" data-filter="data">Data</button>
-    <button class="filter-btn" data-filter="integration">Integration</button>
-  </div>
+    <div class="filters reveal">
+      <button class="filter-btn active" data-filter="all">All work</button>
+      <button class="filter-btn" data-filter="product">Product</button>
+      <button class="filter-btn" data-filter="research">Research</button>
+      <button class="filter-btn" data-filter="data">Data</button>
+      <button class="filter-btn" data-filter="technical">Technical</button>
+    </div>
 
-  <div class="work-grid reveal">
-
-    <a href="#" class="work-card" data-category="product">
-      <div class="work-cover cover-takaruntung">
-        <div class="cover-inner">
-          <div class="cover-small">BUSINESS TOOL · PRODUCT DEVELOPMENT</div>
-          <div class="cover-title">TakarUntung.</div>
-          <div class="cover-bottom">Understand your numbers. Make better decisions.</div>
+    <div class="project-grid">
+      <article class="project-card reveal" data-category="product">
+        <div class="project-cover cover-takar">
+          <div class="cover-label">TakarUntung</div>
         </div>
-      </div>
-      <div class="work-info">
-        <div class="work-meta"><span>PRODUCT DEVELOPMENT</span><span>01 ↗</span></div>
+        <div class="project-meta"><span>PRODUCT CONCEPT</span><span>01</span></div>
         <h3>TakarUntung</h3>
-        <p>Exploring how a digital tool can help beginner culinary businesses calculate costs, pricing, and profitability.</p>
-        <span class="work-link">Explore project ↗</span>
-      </div>
-    </a>
+        <p>Exploring a product concept to help culinary businesses understand their costs, pricing, and profit.</p>
+        <span class="project-coming">Case study coming soon</span>
+      </article>
 
-    <a href="#" class="work-card" data-category="research">
-      <div class="work-cover cover-soco">
-        <div class="cover-inner">
-          <div class="cover-small">PRODUCT DISCOVERY · E-COMMERCE</div>
-          <div class="cover-title">SOCO / Sociolla</div>
-          <div class="cover-bottom">Exploring the Click & Collect experience</div>
+      <article class="project-card reveal" data-category="research">
+        <div class="project-cover cover-soco">
+          <div class="cover-label">Click & Collect<br>Experience</div>
         </div>
-      </div>
-      <div class="work-info">
-        <div class="work-meta"><span>PRODUCT DISCOVERY</span><span>02 ↗</span></div>
-        <h3>SOCO Click & Collect</h3>
-        <p>Investigating customer friction and opportunities in the Click & Collect journey, particularly store confirmation and fulfillment.</p>
-        <span class="work-link">Explore project ↗</span>
-      </div>
-    </a>
+        <div class="project-meta"><span>PRODUCT RESEARCH</span><span>02</span></div>
+        <h3>SOCO / Sociolla</h3>
+        <p>Exploring customer pain points in the Click & Collect journey and opportunities to improve the experience.</p>
+        <span class="project-coming">Case study coming soon</span>
+      </article>
 
-    <a href="#" class="work-card" data-category="product">
-      <div class="work-cover cover-pintarkelas">
-        <div class="cover-inner">
-          <div class="cover-small">PRODUCT & BUSINESS CASE</div>
-          <div class="cover-title">PintarKelas.</div>
-          <div class="cover-bottom">Learning opportunities through digital experiences</div>
+      <article class="project-card reveal" data-category="technical">
+        <div class="project-cover cover-midtrans">
+          <div class="cover-label">Payment<br>Integration</div>
         </div>
-      </div>
-      <div class="work-info">
-        <div class="work-meta"><span>PRODUCT STRATEGY</span><span>03 ↗</span></div>
+        <div class="project-meta"><span>TECHNICAL CASE</span><span>03</span></div>
+        <h3>Midtrans SNAP</h3>
+        <p>Understanding payment integration, API flows, transaction handling, and implementation considerations.</p>
+        <span class="project-coming">Case study coming soon</span>
+      </article>
+
+      <article class="project-card reveal" data-category="product">
+        <div class="project-cover cover-pintar">
+          <div class="cover-label">PintarKelas</div>
+        </div>
+        <div class="project-meta"><span>PRODUCT CASE</span><span>04</span></div>
         <h3>PintarKelas</h3>
-        <p>Exploring business and product opportunities in digital learning and accessibility.</p>
-        <span class="work-link">Explore project ↗</span>
-      </div>
-    </a>
+        <p>A product case project. Details and deliverables will be added after portfolio review.</p>
+        <span class="project-coming">Case study coming soon</span>
+      </article>
 
-    <a href="#" class="work-card" data-category="product">
-      <div class="work-cover cover-fmcg">
-        <div class="cover-inner">
-          <div class="cover-small">BUSINESS CASE · FMCG</div>
-          <div class="cover-title">FMCG.</div>
-          <div class="cover-bottom">From business challenges to digital opportunities</div>
+      <article class="project-card reveal" data-category="product">
+        <div class="project-cover cover-fmcg">
+          <div class="cover-label">FMCG<br>Product Case</div>
         </div>
-      </div>
-      <div class="work-info">
-        <div class="work-meta"><span>BUSINESS ANALYSIS</span><span>04 ↗</span></div>
+        <div class="project-meta"><span>PRODUCT STRATEGY</span><span>05</span></div>
         <h3>FMCG Case</h3>
-        <p>Understanding business context, exploring digital opportunities, and structuring product solutions.</p>
-        <span class="work-link">Explore project ↗</span>
-      </div>
-    </a>
+        <p>Product and business case exploration. Project scope and supporting materials to be updated.</p>
+        <span class="project-coming">Case study coming soon</span>
+      </article>
 
-    <a href="#" class="work-card" data-category="integration">
-      <div class="work-cover cover-midtrans">
-        <div class="cover-inner">
-          <div class="cover-small">API · PAYMENT INTEGRATION</div>
-          <div class="cover-title">Midtrans SNAP.</div>
-          <div class="cover-bottom">Connecting payment experiences and systems</div>
+      <article class="project-card reveal" data-category="data">
+        <div class="project-cover cover-dashboard">
+          <div class="cover-label">Data into<br>Insights</div>
         </div>
-      </div>
-      <div class="work-info">
-        <div class="work-meta"><span>TECHNICAL CASE</span><span>05 ↗</span></div>
-        <h3>Midtrans SNAP Integration</h3>
-        <p>Understanding payment integration, API capabilities, transaction flows, implementation considerations, and security.</p>
-        <span class="work-link">Explore project ↗</span>
-      </div>
-    </a>
-
-    <a href="#" class="work-card" data-category="data">
-      <div class="work-cover cover-powerbi">
-        <div class="cover-inner">
-          <div class="cover-small">DATA ANALYSIS · VISUALIZATION</div>
-          <div class="cover-title">Power BI.</div>
-          <div class="cover-bottom">Turning data into insights</div>
-        </div>
-      </div>
-      <div class="work-info">
-        <div class="work-meta"><span>DATA & ANALYTICS</span><span>06 ↗</span></div>
+        <div class="project-meta"><span>DATA ANALYSIS</span><span>06</span></div>
         <h3>Power BI Dashboard</h3>
-        <p>Working with data to identify trends, organize metrics, and present insights through interactive visualization.</p>
-        <span class="work-link">Explore project ↗</span>
-      </div>
-    </a>
+        <p>Exploring data visualization and dashboard design to make data easier to understand and use.</p>
+        <span class="project-coming">Case study coming soon</span>
+      </article>
 
-    <a href="#" class="work-card" data-category="product">
-      <div class="work-cover cover-grabfood">
-        <div class="cover-inner">
-          <div class="cover-small">PRODUCT & BUSINESS CASE</div>
-          <div class="cover-title">GrabFood.</div>
-          <div class="cover-bottom">Exploring the food delivery experience</div>
+      <article class="project-card reveal" data-category="research">
+        <div class="project-cover cover-grab">
+          <div class="cover-label">GrabFood</div>
         </div>
-      </div>
-      <div class="work-info">
-        <div class="work-meta"><span>PRODUCT CASE</span><span>07 ↗</span></div>
-        <h3>GrabFood</h3>
-        <p>A product and business case exploring user needs, experience, business context, and improvement opportunities.</p>
-        <span class="work-link">Explore project ↗</span>
-      </div>
-    </a>
-
+        <div class="project-meta"><span>PRODUCT EXPLORATION</span><span>07</span></div>
+        <h3>GrabFood Case</h3>
+        <p>Product exploration and problem-solving case. Details to be reviewed before publishing.</p>
+        <span class="project-coming">Case study coming soon</span>
+      </article>
+    </div>
   </div>
 </section>
 
 <!-- SIDE QUESTS -->
-<section class="section" id="sidequests">
-  <div class="section-top reveal">
-    <div>
+<section class="side-quests" id="sidequests">
+  <div class="wrap">
+    <div class="reveal">
       <p class="kicker">05 / Side quests</p>
-      <h2 class="section-title">Curiosity doesn't<br>stay in one lane.</h2>
+      <h2 class="section-title">Curious by nature.<br>Intentional by choice.</h2>
+      <p class="section-intro">Outside of work and structured learning, I enjoy exploring ideas, learning new things, and reflecting along the way.</p>
     </div>
-    <p class="section-intro">
-      A little space for experiments, ideas, things I'm learning, and work that doesn't fit into a project box.
-    </p>
-  </div>
-
-  <div class="sidequests reveal">
-    <div class="quest">
-      <small>LEARNING LOG</small>
-      <h3>Things I'm learning</h3>
-      <p>Notes, discoveries, and concepts that are shaping how I think.</p>
-    </div>
-
-    <div class="quest">
-      <small>EXPERIMENTS</small>
-      <h3>Little experiments</h3>
-      <p>Ideas I want to test, build, explore, or simply see where they go.</p>
-    </div>
-
-    <div class="quest">
-      <small>BEYOND WORK</small>
-      <h3>Other interests</h3>
-      <p>Because the things outside work also shape the way we see the world.</p>
+    <div class="side-quest-grid">
+      <article class="side-quest reveal">
+        <span>01 / CURIOSITY</span>
+        <h3>Always asking why.</h3>
+      </article>
+      <article class="side-quest reveal">
+        <span>02 / GROWTH</span>
+        <h3>Learning in progress.</h3>
+      </article>
+      <article class="side-quest reveal">
+        <span>03 / PERSPECTIVE</span>
+        <h3>Finding meaning in little things.</h3>
+      </article>
     </div>
   </div>
 </section>
-
-</div>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-  <div class="container reveal">
+  <div class="wrap reveal">
     <p class="kicker">06 / Let's connect</p>
     <h2>Good conversations<br>can lead somewhere.</h2>
-    <p>
+    <p class="contact-copy">
       Always open to connecting with people, exchanging ideas,
-      and exploring opportunities to learn and build meaningful things together.
+      and exploring opportunities to build meaningful things together.
     </p>
 
     <div class="contact-links">
+      <!-- GANTI EMAIL DI BAWAH -->
       <a href="mailto:YOUR_EMAIL_HERE">Email ↗</a>
+
+      <!-- GANTI LINK LINKEDIN DI BAWAH -->
       <a href="YOUR_LINKEDIN_URL_HERE" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a href="YOUR_NOTION_URL_HERE" target="_blank" rel="noopener">More about my work ↗</a>
+
+      <!-- LINK MENUJU PROJECT -->
+      <a href="#projects">More about my work ↗</a>
     </div>
   </div>
 </section>
 
-<footer class="container footer">
+<footer>
   <span>SARI. © 2026</span>
   <span>Understand · Build · Evolve</span>
   <span>Made with curiosity.</span>
 </footer>
 
 <script>
-// Mobile navigation
-const menuBtn = document.getElementById('menuBtn');
-const nav = document.getElementById('nav');
+// MOBILE MENU
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
 
-menuBtn.addEventListener('click', () => {
-  nav.classList.toggle('open');
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
 });
 
-nav.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => nav.classList.remove('open'));
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => navLinks.classList.remove('open'));
 });
 
-// Toolkit explorer
-const skills = {
+// TOOLKIT INTERACTION
+const toolData = {
   planning: {
     title: 'Planning & Systems',
-    text: 'My planning background helps me understand interconnected systems, evaluate context, identify issues, and see how decisions affect different stakeholders and the bigger picture.',
-    chips: ['Systems Thinking', 'Research', 'Problem Analysis', 'Spatial Planning', 'Structured Thinking']
+    description: 'Understanding how different elements connect, identifying gaps, and structuring complex information into a clear picture.',
+    tags: ['Systems Thinking', 'Research', 'Analytical Thinking', 'Problem Solving']
   },
-  projects: {
+  people: {
     title: 'Projects & People',
-    text: 'My experience coordinating projects taught me to navigate stakeholder needs, organize moving parts, align expectations, and keep deliverables progressing across workstreams.',
-    chips: ['Stakeholder Management', 'Project Coordination', 'Communication', 'Quality Assurance', 'Documentation']
+    description: 'Working with stakeholders, coordinating workstreams, managing expectations, and keeping execution moving.',
+    tags: ['Stakeholder Management', 'Project Coordination', 'Communication', 'Cross-functional Collaboration']
   },
   product: {
     title: 'Product & Business',
-    text: 'My product learning builds on the way I already approach problems: understanding user and business needs, exploring opportunities, defining requirements, and evaluating possible solutions.',
-    chips: ['Product Discovery', 'Product Strategy', 'Prioritization', 'Requirements', 'MVP', 'Experimentation']
+    description: 'Learning to connect user needs, business objectives, and product decisions through structured product thinking.',
+    tags: ['Product Discovery', 'Requirement Gathering', 'Product Strategy', 'Prioritization', 'User Experience']
   },
   data: {
     title: 'Data & Tools',
-    text: 'I use analytical and digital tools to organize information, explore patterns, communicate findings, and support structured decision-making.',
-    chips: ['Excel', 'Power BI', 'MySQL', 'Figma', 'Draw.io', 'Postman']
+    description: 'Using tools to organize information, analyze data, communicate findings, and support decision-making.',
+    tags: ['Excel', 'Power BI', 'Figma', 'MySQL', 'Draw.io', 'Postman']
   }
 };
 
-const skillTabs = document.querySelectorAll('.skill-tab');
-const skillDisplay = document.getElementById('skillDisplay');
+const toolTabs = document.querySelectorAll('.tool-tab');
+const toolTitle = document.getElementById('toolTitle');
+const toolDescription = document.getElementById('toolDescription');
+const skillTags = document.getElementById('skillTags');
 
-skillTabs.forEach(tab => {
+toolTabs.forEach(tab => {
   tab.addEventListener('click', () => {
-    skillTabs.forEach(t => t.classList.remove('active'));
+    toolTabs.forEach(t => t.classList.remove('active'));
     tab.classList.add('active');
 
-    const data = skills[tab.dataset.skill];
-
-    skillDisplay.innerHTML = `
-      <h3>${data.title}</h3>
-      <p>${data.text}</p>
-      <div class="skill-chips">
-        ${data.chips.map(chip => `<span>${chip}</span>`).join('')}
-      </div>
-    `;
+    const data = toolData[tab.dataset.tool];
+    toolTitle.textContent = data.title;
+    toolDescription.textContent = data.description;
+    skillTags.innerHTML = data.tags.map(tag => `<span>${tag}</span>`).join('');
   });
 });
 
-// Project filters
+// PROJECT FILTER
 const filterBtns = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.work-card');
+const projectCards = document.querySelectorAll('.project-card');
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -1387,15 +835,14 @@ filterBtns.forEach(btn => {
     btn.classList.add('active');
 
     const filter = btn.dataset.filter;
-
     projectCards.forEach(card => {
-      const category = card.dataset.category;
-      card.classList.toggle('hidden', filter !== 'all' && category !== filter);
+      const show = filter === 'all' || card.dataset.category === filter;
+      card.classList.toggle('hidden', !show);
     });
   });
 });
 
-// Scroll reveal
+// SCROLL REVEAL
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
