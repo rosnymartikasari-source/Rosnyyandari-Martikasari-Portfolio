@@ -1,0 +1,1412 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sari | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #f7f7f5;
+  --surface: #eeeeeb;
+  --surface-dark: #e5e5e1;
+  --text: #262725;
+  --muted: #747671;
+  --border: #ddddda;
+  --accent: #62655f;
+  --white: #ffffff;
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+.container {
+  width: min(1160px, 88%);
+  margin: auto;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav a {
+  color: var(--muted);
+  font-size: 12px;
+  transition: color .2s;
+}
+
+.nav a:hover {
+  color: var(--text);
+}
+
+.menu-btn {
+  display: none;
+  border: 0;
+  background: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 690px;
+  padding: 95px 0 80px;
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: center;
+  gap: 75px;
+}
+
+.kicker {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 7vw, 88px);
+  line-height: 1.17;
+  letter-spacing: -4px;
+  font-weight: 600;
+  margin: 25px 0;
+}
+
+.hero h1 span {
+  color: #8c8e88;
+}
+
+.hero-description {
+  max-width: 540px;
+  color: var(--muted);
+  line-height: 2;
+  font-size: 14px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--text);
+  border-radius: 100px;
+  padding: 13px 21px;
+  font-size: 12px;
+  transition: all .25s;
+  cursor: pointer;
+}
+
+.btn-dark {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.btn-light {
+  background: transparent;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.hero-note {
+  margin-top: 55px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.hero-note span {
+  color: var(--text);
+}
+
+.portrait-wrap {
+  position: relative;
+  max-width: 390px;
+  justify-self: end;
+  width: 100%;
+}
+
+.portrait {
+  aspect-ratio: 4 / 5;
+  border-radius: 180px 180px 14px 14px;
+  background: #e6e6e1;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Replace this placeholder with your portrait image later */
+.portrait-placeholder {
+  text-align: center;
+  color: #8b8d86;
+  padding: 25px;
+}
+
+.portrait-placeholder strong {
+  display: block;
+  font-size: 65px;
+  font-weight: 500;
+  letter-spacing: -5px;
+}
+
+.portrait-placeholder small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-top: 8px;
+}
+
+.portrait-caption {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 13px;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.side-label {
+  position: absolute;
+  top: 45%;
+  right: -48px;
+  writing-mode: vertical-rl;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.section {
+  padding: 110px 0;
+  border-top: 1px solid var(--border);
+}
+
+.section-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: clamp(36px, 5vw, 62px);
+  font-weight: 500;
+  letter-spacing: -3px;
+  line-height: 1.25;
+  margin-top: 18px;
+}
+
+.section-intro {
+  max-width: 400px;
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 13px;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+.about-copy {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 2.1;
+}
+
+.about-copy p + p {
+  margin-top: 22px;
+}
+
+.about-quote {
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: -.6px;
+  line-height: 1.8;
+  padding: 35px;
+  background: var(--surface);
+  border-radius: var(--radius);
+}
+
+.about-quote span {
+  color: #858781;
+}
+
+.ipo-section {
+  margin-top: 75px;
+}
+
+.ipo-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 22px;
+}
+
+.ipo-heading p {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.ipo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.ipo-card {
+  background: var(--surface);
+  padding: 28px;
+  border-radius: var(--radius);
+  min-height: 225px;
+  transition: transform .25s;
+}
+
+.ipo-card:hover {
+  transform: translateY(-5px);
+}
+
+.ipo-card .num {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+.ipo-card h3 {
+  font-size: 23px;
+  font-weight: 500;
+  margin: 35px 0 12px;
+}
+
+.ipo-card p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* Journey */
+.journey {
+  position: relative;
+  border-left: 1px solid var(--border);
+  margin-left: 8px;
+}
+
+.journey-item {
+  padding: 0 0 48px 35px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 35px;
+}
+
+.journey-item:last-child {
+  padding-bottom: 0;
+}
+
+.journey-item::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  background: var(--bg);
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  position: absolute;
+  left: -5px;
+  top: 5px;
+}
+
+.journey-date {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.journey-content h3 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.journey-content p {
+  color: var(--muted);
+  line-height: 1.9;
+  max-width: 650px;
+}
+
+.journey-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.journey-tags span {
+  border: 1px solid var(--border);
+  padding: 6px 11px;
+  border-radius: 50px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+/* Skill explorer */
+.skill-intro {
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 25px;
+  font-size: 12px;
+}
+
+.skill-explorer {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.skill-tabs {
+  background: var(--surface);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.skill-tab {
+  border: 0;
+  background: transparent;
+  text-align: left;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 12px;
+  font-size: 12px;
+  color: var(--muted);
+  transition: .2s;
+}
+
+.skill-tab:hover,
+.skill-tab.active {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.skill-display {
+  padding: 40px;
+  min-height: 320px;
+}
+
+.skill-display h3 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.skill-display p {
+  max-width: 600px;
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 13px;
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.skill-chips span {
+  background: var(--surface);
+  border-radius: 50px;
+  padding: 10px 15px;
+  font-size: 11px;
+}
+
+/* Work */
+.work-filter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+}
+
+.filter-btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  padding: 9px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 11px;
+  color: var(--muted);
+  transition: .2s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px 25px;
+}
+
+.work-card {
+  display: block;
+}
+
+.work-card.hidden {
+  display: none;
+}
+
+.work-cover {
+  position: relative;
+  height: 360px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .3s;
+}
+
+.work-card:hover .work-cover {
+  transform: translateY(-4px);
+}
+
+.cover-inner {
+  width: 78%;
+  height: 72%;
+  background: rgba(255,255,255,.55);
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: rotate(-2deg);
+  transition: transform .3s;
+  box-shadow: 0 15px 40px rgba(0,0,0,.04);
+}
+
+.work-card:hover .cover-inner {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.cover-small {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  opacity: .65;
+}
+
+.cover-title {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -1.5px;
+}
+
+.cover-bottom {
+  font-size: 10px;
+  opacity: .7;
+}
+
+.cover-takaruntung {
+  background: #e6dfd0;
+  color: #655c46;
+}
+
+.cover-soco {
+  background: #ead9df;
+  color: #8b5f72;
+}
+
+.cover-pintarkelas {
+  background: #dce5ec;
+  color: #4e6a80;
+}
+
+.cover-fmcg {
+  background: #e3e5d9;
+  color: #5b6650;
+}
+
+.cover-midtrans {
+  background: #e5e1ea;
+  color: #62567c;
+}
+
+.cover-grabfood {
+  background: #e9e5d7;
+  color: #6e6848;
+}
+
+.cover-powerbi {
+  background: #dededb;
+  color: #575851;
+}
+
+.work-info {
+  padding: 20px 3px 0;
+}
+
+.work-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: .5px;
+}
+
+.work-info h3 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 12px 0 8px;
+}
+
+.work-info p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.9;
+  max-width: 480px;
+}
+
+.work-link {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 11px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 4px;
+}
+
+/* Side quests */
+.sidequests {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+}
+
+.quest {
+  padding: 25px;
+  min-height: 180px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: .25s;
+}
+
+.quest:hover {
+  background: var(--surface);
+  transform: translateY(-4px);
+}
+
+.quest small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.quest h3 {
+  margin: 25px 0 10px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.quest p {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* Contact */
+.contact {
+  background: var(--text);
+  color: var(--bg);
+  padding: 100px 0;
+}
+
+.contact .kicker {
+  color: #b7b9b3;
+}
+
+.contact h2 {
+  font-size: clamp(42px, 7vw, 82px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -4px;
+  margin: 22px 0;
+}
+
+.contact p {
+  color: #c3c5bf;
+  line-height: 1.9;
+  max-width: 520px;
+}
+
+.contact-links {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin-top: 35px;
+}
+
+.contact-links a {
+  font-size: 12px;
+  border-bottom: 1px solid #777973;
+  padding-bottom: 5px;
+}
+
+.footer {
+  padding: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+/* Interaction */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .65s, transform .65s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media(max-width: 850px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    padding-top: 65px;
+  }
+
+  .portrait-wrap {
+    justify-self: center;
+    max-width: 350px;
+  }
+
+  .section-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .skill-explorer {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-tabs {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .skill-tab {
+    flex: 1;
+    text-align: center;
+  }
+
+  .sidequests {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 600px) {
+  .container {
+    width: 90%;
+  }
+
+  .topbar {
+    height: 72px;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    padding: 25px 5%;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .hero h1 {
+    letter-spacing: -2.5px;
+  }
+
+  .hero {
+    padding: 60px 0;
+    min-height: auto;
+  }
+
+  .side-label {
+    right: -30px;
+  }
+
+  .section {
+    padding: 75px 0;
+  }
+
+  .section-title {
+    letter-spacing: -2px;
+  }
+
+  .ipo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ipo-card {
+    min-height: 175px;
+  }
+
+  .ipo-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .journey-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-left: 25px;
+  }
+
+  .skill-display {
+    padding: 25px;
+  }
+
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .work-cover {
+    height: 280px;
+  }
+
+  .sidequests {
+    grid-template-columns: 1fr;
+  }
+
+  .contact {
+    padding: 75px 0;
+  }
+
+  .contact h2 {
+    letter-spacing: -2px;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="topbar">
+  <a href="#" class="brand">SARI<span>.</span></a>
+
+  <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+
+  <nav class="nav" id="nav">
+    <a href="#about">About</a>
+    <a href="#journey">Journey</a>
+    <a href="#toolkit">Toolkit</a>
+    <a href="#work">Projects</a>
+    <a href="#sidequests">Side quests</a>
+    <a href="#contact">Contact ↗</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content reveal">
+    <p class="kicker">Urban Planning · Project Coordination · Product</p>
+
+    <h1>Understand.<br>Build.<br><span>Evolve.</span></h1>
+
+    <p class="hero-description">
+      I see connections between people, processes, and bigger-picture problems.
+      My background in urban planning and project coordination shapes how I approach
+      product challenges: with curiosity, structure, and a perspective that looks beyond the obvious.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn btn-dark" href="#work">Explore my work ↗</a>
+      <a class="btn btn-light" href="#about">A little about me</a>
+    </div>
+
+    <p class="hero-note">
+      Currently exploring the intersection of <span>business, people & product.</span>
+    </p>
+  </div>
+
+  <div class="portrait-wrap reveal">
+    <div class="portrait">
+      <div class="portrait-placeholder">
+        <strong>S.</strong>
+        <small>YOUR PHOTO GOES HERE</small>
+      </div>
+    </div>
+    <div class="portrait-caption">
+      <span>01 — A little introduction</span>
+      <span>Indonesia</span>
+    </div>
+    <span class="side-label">CURIOUS BY NATURE · INTENTIONAL BY CHOICE</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-top reveal">
+    <div>
+      <p class="kicker">01 / About me</p>
+      <h2 class="section-title">Different experiences.<br>One way of thinking.</h2>
+    </div>
+    <p class="section-intro">
+      I didn't start in product. I started by learning how to understand complex environments,
+      work with different people, and turn moving pieces into something structured.
+    </p>
+  </div>
+
+  <div class="about-layout reveal">
+    <div class="about-copy">
+      <p>
+        My foundation in Urban and Regional Planning taught me to look at systems,
+        relationships, and the bigger picture. Working as a Project Coordinator strengthened
+        that perspective through real projects, stakeholder needs, execution challenges,
+        and deliverables that had to come together.
+      </p>
+      <p>
+        As I explored Product Management, I found familiar ways of thinking in a different context.
+        Understanding problems, asking questions, prioritizing needs, and turning insights into
+        practical solutions are things I have been building throughout my journey.
+      </p>
+      <p>
+        I bring those experiences together with what I continue to learn about product,
+        business, data, and technology.
+      </p>
+    </div>
+
+    <div class="about-quote">
+      "I don't see my past experience as something to leave behind.
+      <span>I see it as another lens to bring into the way I build.</span>"
+    </div>
+  </div>
+
+  <div class="ipo-section reveal">
+    <div class="ipo-heading">
+      <h3>How I approach things</h3>
+      <p>A mindset I carry into every challenge.</p>
+    </div>
+
+    <div class="ipo-grid">
+      <div class="ipo-card">
+        <span class="num">01 / INPUT</span>
+        <h3>Understand</h3>
+        <p>Collect context, listen to people, observe what is happening, and question assumptions.</p>
+      </div>
+
+      <div class="ipo-card">
+        <span class="num">02 / PROCESS</span>
+        <h3>Connect</h3>
+        <p>Analyze what I find, identify patterns, understand constraints, and explore possibilities.</p>
+      </div>
+
+      <div class="ipo-card">
+        <span class="num">03 / OUTPUT</span>
+        <h3>Build</h3>
+        <p>Turn understanding into structured decisions, deliverables, and solutions that move things forward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="section" id="journey">
+  <div class="section-top reveal">
+    <div>
+      <p class="kicker">02 / My journey</p>
+      <h2 class="section-title">Experience that<br>shapes perspective.</h2>
+    </div>
+    <p class="section-intro">
+      Every chapter added a different piece to the way I think, work, and approach challenges today.
+    </p>
+  </div>
+
+  <div class="journey reveal">
+
+    <div class="journey-item">
+      <div class="journey-date">EDUCATION</div>
+      <div class="journey-content">
+        <h3>Urban & Regional Planning</h3>
+        <p>
+          Learned to understand places as interconnected systems, conduct research,
+          analyze conditions, consider stakeholder needs, and develop structured plans.
+        </p>
+        <div class="journey-tags">
+          <span>Systems Thinking</span>
+          <span>Research</span>
+          <span>Spatial Analysis</span>
+          <span>Planning</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey-item">
+      <div class="journey-date">PROFESSIONAL EXPERIENCE</div>
+      <div class="journey-content">
+        <h3>Project Coordinator · CV Tamara Engineering</h3>
+        <p>
+          Coordinated regional and national-scale projects, supported planning deliverables,
+          worked with multiple stakeholders, managed documentation, and helped keep execution
+          aligned across workstreams.
+        </p>
+        <div class="journey-tags">
+          <span>Project Coordination</span>
+          <span>Stakeholder Management</span>
+          <span>Quality Review</span>
+          <span>Documentation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey-item">
+      <div class="journey-date">PROFESSIONAL EXPERIENCE</div>
+      <div class="journey-content">
+        <h3>Project Experience · SUCOFINDO</h3>
+        <p>
+          Supported project activities and coordination in a professional environment,
+          contributing to structured execution, communication, and project documentation.
+        </p>
+        <div class="journey-tags">
+          <span>Coordination</span>
+          <span>Communication</span>
+          <span>Project Support</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey-item">
+      <div class="journey-date">PROFESSIONAL DEVELOPMENT</div>
+      <div class="journey-content">
+        <h3>Business Analyst & Product Strategy</h3>
+        <p>
+          Strengthened my foundation in product discovery, business analysis,
+          requirements, prioritization, UX, data analysis, experimentation,
+          and product development through structured learning and hands-on projects.
+        </p>
+        <div class="journey-tags">
+          <span>Product Management</span>
+          <span>Business Analysis</span>
+          <span>Data</span>
+          <span>Product Strategy</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TOOLKIT -->
+<section class="section" id="toolkit">
+  <div class="section-top reveal">
+    <div>
+      <p class="kicker">03 / My toolkit</p>
+      <h2 class="section-title">Different lenses.<br>Complementary strengths.</h2>
+    </div>
+    <p class="section-intro">
+      Explore the skills and perspectives I bring together.
+      Select an area to see what's behind it.
+    </p>
+  </div>
+
+  <p class="skill-intro reveal">SELECT AN AREA TO EXPLORE ↘</p>
+
+  <div class="skill-explorer reveal">
+    <div class="skill-tabs">
+      <button class="skill-tab active" data-skill="planning">Planning & Systems</button>
+      <button class="skill-tab" data-skill="projects">Projects & People</button>
+      <button class="skill-tab" data-skill="product">Product & Business</button>
+      <button class="skill-tab" data-skill="data">Data & Tools</button>
+    </div>
+
+    <div class="skill-display" id="skillDisplay">
+      <h3>Planning & Systems</h3>
+      <p>
+        My planning background helps me understand interconnected systems,
+        evaluate context, identify issues, and see how decisions affect
+        different stakeholders and the bigger picture.
+      </p>
+      <div class="skill-chips">
+        <span>Systems Thinking</span>
+        <span>Research</span>
+        <span>Problem Analysis</span>
+        <span>Spatial Planning</span>
+        <span>Structured Thinking</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SELECTED WORK -->
+<section class="section" id="work">
+  <div class="section-top reveal">
+    <div>
+      <p class="kicker">04 / Selected work</p>
+      <h2 class="section-title">A closer look at<br>what I've worked on.</h2>
+    </div>
+    <p class="section-intro">
+      Different challenges, different contexts, different ways of approaching a problem.
+      Take a look around.
+    </p>
+  </div>
+
+  <div class="work-filter reveal">
+    <button class="filter-btn active" data-filter="all">All projects</button>
+    <button class="filter-btn" data-filter="product">Product</button>
+    <button class="filter-btn" data-filter="research">Research</button>
+    <button class="filter-btn" data-filter="data">Data</button>
+    <button class="filter-btn" data-filter="integration">Integration</button>
+  </div>
+
+  <div class="work-grid reveal">
+
+    <a href="#" class="work-card" data-category="product">
+      <div class="work-cover cover-takaruntung">
+        <div class="cover-inner">
+          <div class="cover-small">BUSINESS TOOL · PRODUCT DEVELOPMENT</div>
+          <div class="cover-title">TakarUntung.</div>
+          <div class="cover-bottom">Understand your numbers. Make better decisions.</div>
+        </div>
+      </div>
+      <div class="work-info">
+        <div class="work-meta"><span>PRODUCT DEVELOPMENT</span><span>01 ↗</span></div>
+        <h3>TakarUntung</h3>
+        <p>Exploring how a digital tool can help beginner culinary businesses calculate costs, pricing, and profitability.</p>
+        <span class="work-link">Explore project ↗</span>
+      </div>
+    </a>
+
+    <a href="#" class="work-card" data-category="research">
+      <div class="work-cover cover-soco">
+        <div class="cover-inner">
+          <div class="cover-small">PRODUCT DISCOVERY · E-COMMERCE</div>
+          <div class="cover-title">SOCO / Sociolla</div>
+          <div class="cover-bottom">Exploring the Click & Collect experience</div>
+        </div>
+      </div>
+      <div class="work-info">
+        <div class="work-meta"><span>PRODUCT DISCOVERY</span><span>02 ↗</span></div>
+        <h3>SOCO Click & Collect</h3>
+        <p>Investigating customer friction and opportunities in the Click & Collect journey, particularly store confirmation and fulfillment.</p>
+        <span class="work-link">Explore project ↗</span>
+      </div>
+    </a>
+
+    <a href="#" class="work-card" data-category="product">
+      <div class="work-cover cover-pintarkelas">
+        <div class="cover-inner">
+          <div class="cover-small">PRODUCT & BUSINESS CASE</div>
+          <div class="cover-title">PintarKelas.</div>
+          <div class="cover-bottom">Learning opportunities through digital experiences</div>
+        </div>
+      </div>
+      <div class="work-info">
+        <div class="work-meta"><span>PRODUCT STRATEGY</span><span>03 ↗</span></div>
+        <h3>PintarKelas</h3>
+        <p>Exploring business and product opportunities in digital learning and accessibility.</p>
+        <span class="work-link">Explore project ↗</span>
+      </div>
+    </a>
+
+    <a href="#" class="work-card" data-category="product">
+      <div class="work-cover cover-fmcg">
+        <div class="cover-inner">
+          <div class="cover-small">BUSINESS CASE · FMCG</div>
+          <div class="cover-title">FMCG.</div>
+          <div class="cover-bottom">From business challenges to digital opportunities</div>
+        </div>
+      </div>
+      <div class="work-info">
+        <div class="work-meta"><span>BUSINESS ANALYSIS</span><span>04 ↗</span></div>
+        <h3>FMCG Case</h3>
+        <p>Understanding business context, exploring digital opportunities, and structuring product solutions.</p>
+        <span class="work-link">Explore project ↗</span>
+      </div>
+    </a>
+
+    <a href="#" class="work-card" data-category="integration">
+      <div class="work-cover cover-midtrans">
+        <div class="cover-inner">
+          <div class="cover-small">API · PAYMENT INTEGRATION</div>
+          <div class="cover-title">Midtrans SNAP.</div>
+          <div class="cover-bottom">Connecting payment experiences and systems</div>
+        </div>
+      </div>
+      <div class="work-info">
+        <div class="work-meta"><span>TECHNICAL CASE</span><span>05 ↗</span></div>
+        <h3>Midtrans SNAP Integration</h3>
+        <p>Understanding payment integration, API capabilities, transaction flows, implementation considerations, and security.</p>
+        <span class="work-link">Explore project ↗</span>
+      </div>
+    </a>
+
+    <a href="#" class="work-card" data-category="data">
+      <div class="work-cover cover-powerbi">
+        <div class="cover-inner">
+          <div class="cover-small">DATA ANALYSIS · VISUALIZATION</div>
+          <div class="cover-title">Power BI.</div>
+          <div class="cover-bottom">Turning data into insights</div>
+        </div>
+      </div>
+      <div class="work-info">
+        <div class="work-meta"><span>DATA & ANALYTICS</span><span>06 ↗</span></div>
+        <h3>Power BI Dashboard</h3>
+        <p>Working with data to identify trends, organize metrics, and present insights through interactive visualization.</p>
+        <span class="work-link">Explore project ↗</span>
+      </div>
+    </a>
+
+    <a href="#" class="work-card" data-category="product">
+      <div class="work-cover cover-grabfood">
+        <div class="cover-inner">
+          <div class="cover-small">PRODUCT & BUSINESS CASE</div>
+          <div class="cover-title">GrabFood.</div>
+          <div class="cover-bottom">Exploring the food delivery experience</div>
+        </div>
+      </div>
+      <div class="work-info">
+        <div class="work-meta"><span>PRODUCT CASE</span><span>07 ↗</span></div>
+        <h3>GrabFood</h3>
+        <p>A product and business case exploring user needs, experience, business context, and improvement opportunities.</p>
+        <span class="work-link">Explore project ↗</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- SIDE QUESTS -->
+<section class="section" id="sidequests">
+  <div class="section-top reveal">
+    <div>
+      <p class="kicker">05 / Side quests</p>
+      <h2 class="section-title">Curiosity doesn't<br>stay in one lane.</h2>
+    </div>
+    <p class="section-intro">
+      A little space for experiments, ideas, things I'm learning, and work that doesn't fit into a project box.
+    </p>
+  </div>
+
+  <div class="sidequests reveal">
+    <div class="quest">
+      <small>LEARNING LOG</small>
+      <h3>Things I'm learning</h3>
+      <p>Notes, discoveries, and concepts that are shaping how I think.</p>
+    </div>
+
+    <div class="quest">
+      <small>EXPERIMENTS</small>
+      <h3>Little experiments</h3>
+      <p>Ideas I want to test, build, explore, or simply see where they go.</p>
+    </div>
+
+    <div class="quest">
+      <small>BEYOND WORK</small>
+      <h3>Other interests</h3>
+      <p>Because the things outside work also shape the way we see the world.</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container reveal">
+    <p class="kicker">06 / Let's connect</p>
+    <h2>Good conversations<br>can lead somewhere.</h2>
+    <p>
+      Always open to connecting with people, exchanging ideas,
+      and exploring opportunities to learn and build meaningful things together.
+    </p>
+
+    <div class="contact-links">
+      <a href="mailto:YOUR_EMAIL_HERE">Email ↗</a>
+      <a href="YOUR_LINKEDIN_URL_HERE" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="YOUR_NOTION_URL_HERE" target="_blank" rel="noopener">More about my work ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer class="container footer">
+  <span>SARI. © 2026</span>
+  <span>Understand · Build · Evolve</span>
+  <span>Made with curiosity.</span>
+</footer>
+
+<script>
+// Mobile navigation
+const menuBtn = document.getElementById('menuBtn');
+const nav = document.getElementById('nav');
+
+menuBtn.addEventListener('click', () => {
+  nav.classList.toggle('open');
+});
+
+nav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => nav.classList.remove('open'));
+});
+
+// Toolkit explorer
+const skills = {
+  planning: {
+    title: 'Planning & Systems',
+    text: 'My planning background helps me understand interconnected systems, evaluate context, identify issues, and see how decisions affect different stakeholders and the bigger picture.',
+    chips: ['Systems Thinking', 'Research', 'Problem Analysis', 'Spatial Planning', 'Structured Thinking']
+  },
+  projects: {
+    title: 'Projects & People',
+    text: 'My experience coordinating projects taught me to navigate stakeholder needs, organize moving parts, align expectations, and keep deliverables progressing across workstreams.',
+    chips: ['Stakeholder Management', 'Project Coordination', 'Communication', 'Quality Assurance', 'Documentation']
+  },
+  product: {
+    title: 'Product & Business',
+    text: 'My product learning builds on the way I already approach problems: understanding user and business needs, exploring opportunities, defining requirements, and evaluating possible solutions.',
+    chips: ['Product Discovery', 'Product Strategy', 'Prioritization', 'Requirements', 'MVP', 'Experimentation']
+  },
+  data: {
+    title: 'Data & Tools',
+    text: 'I use analytical and digital tools to organize information, explore patterns, communicate findings, and support structured decision-making.',
+    chips: ['Excel', 'Power BI', 'MySQL', 'Figma', 'Draw.io', 'Postman']
+  }
+};
+
+const skillTabs = document.querySelectorAll('.skill-tab');
+const skillDisplay = document.getElementById('skillDisplay');
+
+skillTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    skillTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    const data = skills[tab.dataset.skill];
+
+    skillDisplay.innerHTML = `
+      <h3>${data.title}</h3>
+      <p>${data.text}</p>
+      <div class="skill-chips">
+        ${data.chips.map(chip => `<span>${chip}</span>`).join('')}
+      </div>
+    `;
+  });
+});
+
+// Project filters
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.work-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filter = btn.dataset.filter;
+
+    projectCards.forEach(card => {
+      const category = card.dataset.category;
+      card.classList.toggle('hidden', filter !== 'all' && category !== filter);
+    });
+  });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
