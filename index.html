@@ -12,16 +12,17 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}body{margin:0;background:var(--bg);color:var(--ink);font-family:'Poppins',sans-serif;font-size:16px;line-height:1.7}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}img{max-width:100%;display:block}
 .wrap{width:min(var(--max),calc(100% - 64px));margin:auto}.section{padding:110px 0}.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500}.section-head{max-width:780px;margin-bottom:46px}.section-head h2{font-size:clamp(36px,4.3vw,54px);line-height:1.18;letter-spacing:-.045em;margin:14px 0 16px;font-weight:600}.section-head p{color:var(--muted);max-width:650px;margin:0}.small{font-size:13px;color:var(--muted)}
 header{position:sticky;top:0;z-index:50;background:rgba(246,246,243,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{height:72px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:20px;font-weight:800;letter-spacing:-.06em}.navlinks{display:flex;gap:28px;align-items:center}.navlinks a{font-size:13px;color:#50554f;transition:color .2s}.navlinks a:hover{color:var(--ink)}.menu-btn{display:none;border:1px solid var(--line);background:transparent;border-radius:10px;padding:8px 12px}
-.hero{padding:76px 0 82px;min-height:calc(100vh - 72px);display:flex;align-items:center}.hero-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(300px,.82fr);gap:clamp(34px,4vw,52px);align-items:center}.hero-kicker{display:flex;align-items:center;gap:10px;margin-bottom:24px}.dot{width:8px;height:8px;background:var(--accent);border-radius:50%}.hero h1{font-size:clamp(42px,5.1vw,70px);line-height:1.04;letter-spacing:-.065em;font-weight:700;margin:0 0 22px}.hero h1 .soft{color:#8b9189}.hero-copy{font-size:16px;max-width:620px;color:#565c55;margin-bottom:26px;line-height:1.8}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 20px;border:1px solid var(--ink);border-radius:999px;font-size:13px;font-weight:500;transition:.2s}.btn.primary{background:var(--ink);color:white}.btn.primary:hover{background:var(--accent);border-color:var(--accent)}.btn.secondary:hover{background:var(--accent2);border-color:var(--accent2)}.hero-visual {
+.hero{padding:76px 0 82px;min-height:calc(100vh - 72px);display:flex;align-items:center}.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(420px,.95fr);gap:clamp(30px,3.5vw,44px);align-items:center}.hero-kicker{display:flex;align-items:center;gap:10px;margin-bottom:24px}.dot{width:8px;height:8px;background:var(--accent);border-radius:50%}.hero h1{font-size:clamp(42px,5.1vw,70px);line-height:1.04;letter-spacing:-.065em;font-weight:700;margin:0 0 22px}.hero h1 .soft{color:#8b9189}.hero-copy{font-size:16px;max-width:620px;color:#565c55;margin-bottom:26px;line-height:1.8}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 20px;border:1px solid var(--ink);border-radius:999px;font-size:13px;font-weight:500;transition:.2s}.btn.primary{background:var(--ink);color:white}.btn.primary:hover{background:var(--accent);border-color:var(--accent)}.btn.secondary:hover{background:var(--accent2);border-color:var(--accent2)}.hero-visual {
   width: 100%;
-  height: 500px;
+  height: clamp(420px, 43vw, 560px);
   display: flex;
-  justify-content: center;
-  align-items: center;
-}.portrait-placeholder {
+  justify-content: stretch;
+  align-items: stretch;
+}
+.portrait-placeholder {
   width: 100%;
-  max-width: 500px;
-  height: 500px;
+  max-width: none;
+  height: 100%;
   overflow: hidden;
   border-radius: 24px;
   background: #e8e9e4;
@@ -55,9 +56,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(246,246,243,.94);backdro
 .puzzle-detail{background:#f0f1ed;border-radius:24px;padding:36px;min-height:390px;display:flex;flex-direction:column;justify-content:center}.puzzle-detail h3{font-size:clamp(25px,2.7vw,34px);line-height:1.2;letter-spacing:-.045em;margin:12px 0 14px}.puzzle-detail>p{color:#596159;font-size:15px;margin:0 0 24px}.puzzle-tags{display:flex;flex-wrap:wrap;gap:8px}.puzzle-tags span{border:1px solid #cfd5cd;background:rgba(255,255,255,.45);border-radius:99px;padding:7px 11px;font-size:12px}.puzzle-evidence{border-top:1px solid #d4d8d0;margin-top:28px;padding-top:18px}.evidence-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#7a8178}.puzzle-evidence p{font-size:13px;margin:5px 0 0;color:#4e554e}.puzzle-hint{font-size:11px;color:#777e76;margin-top:22px}
 @media(max-width:850px){.puzzle-layout{grid-template-columns:1fr;gap:24px}.puzzle-board{max-width:500px}.puzzle-detail{min-height:320px}}
 @media(max-width:640px){.puzzle-board{gap:8px;padding:5px}.puzzle-piece{min-height:145px;padding:16px;border-radius:22px 9px 22px 9px}.puzzle-piece:nth-child(2),.puzzle-piece:nth-child(3){border-radius:9px 22px 9px 22px}.piece-name{font-size:22px}.piece-caption{font-size:10px}.puzzle-center{width:78px;height:78px;font-size:16px}.puzzle-center span{font-size:7px}.puzzle-detail{padding:24px}}
-@media(max-width:1000px){.hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(260px,.92fr);gap:30px}.hero-visual{height:420px}.portrait-placeholder{height:420px}.hero h1{font-size:clamp(40px,5.3vw,60px)}}
-@media(max-width:850px){.wrap{width:min(var(--max),calc(100% - 40px))}.section{padding:80px 0}.navlinks{gap:16px}.hero-grid{grid-template-columns:1fr .72fr;gap:32px}.hero-visual{min-height:360px}.portrait-placeholder{height:360px}.hero h1{font-size:clamp(44px,8vw,68px)}.about-grid{gap:40px}.project-cover{height:230px}.interest-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){html{scroll-padding-top:78px}.nav{height:64px}.menu-btn{display:block}.navlinks{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:18px 20px 22px;flex-direction:column;align-items:flex-start;gap:16px}.navlinks.open{display:flex}.hero{padding:64px 0 70px;min-height:auto}.hero-grid{grid-template-columns:1fr;gap:30px}.hero h1{font-size:clamp(43px,12vw,65px)}.hero-copy{font-size:16px}.hero-visual{min-height:320px;height:320px}.portrait-placeholder{width:280px;height:320px}.about-grid{grid-template-columns:1fr;gap:24px}.about-label{position:static}.about-text p{font-size:17px}.timeline-item{grid-template-columns:1fr;gap:9px;padding:24px 0}.timeline-title{font-size:19px}.skill-explorer{grid-template-columns:1fr}.skill-panel{min-height:260px;padding:25px}.project-grid{grid-template-columns:1fr}.project-cover{height:220px}.project-info h3{font-size:21px}.interest-grid{grid-template-columns:1fr}.contact-wrap{padding:30px 24px}.contact h2{font-size:38px}.modal-box{padding:28px 22px}.modal-box h2{font-size:28px}.footer-inner{gap:8px}}
+@media(max-width:1000px){.hero-grid{grid-template-columns:minmax(0,1fr) minmax(320px,.9fr);gap:28px}.hero-visual{height:clamp(420px,46vw,490px)}.hero h1{font-size:clamp(40px,5.3vw,60px)}}
+@media(max-width:850px){.wrap{width:min(var(--max),calc(100% - 40px))}.section{padding:80px 0}.navlinks{gap:16px}.hero-grid{grid-template-columns:minmax(0,1fr) minmax(280px,.82fr);gap:24px}.hero-visual{height:390px}.hero h1{font-size:clamp(40px,6.5vw,58px)}.about-grid{gap:40px}.project-cover{height:230px}.interest-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){html{scroll-padding-top:78px}.nav{height:64px}.menu-btn{display:block}.navlinks{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:18px 20px 22px;flex-direction:column;align-items:flex-start;gap:16px}.navlinks.open{display:flex}.hero{padding:64px 0 70px;min-height:auto}.hero-grid{grid-template-columns:1fr;gap:30px}.hero h1{font-size:clamp(43px,12vw,65px)}.hero-copy{font-size:16px}.hero-visual{min-height:0;height:clamp(320px,95vw,420px)}.portrait-placeholder{width:100%;height:100%;max-width:none}.about-grid{grid-template-columns:1fr;gap:24px}.about-label{position:static}.about-text p{font-size:17px}.timeline-item{grid-template-columns:1fr;gap:9px;padding:24px 0}.timeline-title{font-size:19px}.skill-explorer{grid-template-columns:1fr}.skill-panel{min-height:260px;padding:25px}.project-grid{grid-template-columns:1fr}.project-cover{height:220px}.project-info h3{font-size:21px}.interest-grid{grid-template-columns:1fr}.contact-wrap{padding:30px 24px}.contact h2{font-size:38px}.modal-box{padding:28px 22px}.modal-box h2{font-size:28px}.footer-inner{gap:8px}}
 
 /* Layout corrections: keep portfolio sections stacked and give each section room */
 main{display:block;width:100%;}
@@ -163,7 +164,39 @@ html{scroll-padding-top:88px}
  .entry-index{width:32px;height:32px}
 }
 
-</style>
+
+/* Career journey: grouped editorial cards */
+.experience-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.2vw,28px);align-items:start}
+.experience-group{min-width:0;position:relative}
+.experience-group-head{min-height:126px;padding:0 0 18px;border-bottom:1px solid #cfd5cc;margin-bottom:16px}
+.group-index{display:block;font:10px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.13em;color:var(--accent);margin-bottom:12px}
+.group-title-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.group-title-row h3{font-size:clamp(19px,2vw,24px);line-height:1.2;letter-spacing:-.045em;margin:0}
+.group-count{font:9px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.08em;color:#7b857b;white-space:nowrap}
+.experience-group-head>p{font-size:12px;line-height:1.65;color:var(--muted);margin:9px 0 0}
+.experience-card-list{display:grid;gap:14px}
+.experience-card{position:relative;min-width:0;padding:20px 20px 19px;border:1px solid #d6dbd3;border-radius:16px;background:rgba(255,255,255,.52);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease,background .22s ease}
+.experience-card:before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:2px;background:linear-gradient(180deg,var(--accent),rgba(125,142,120,.08));opacity:.75}
+.experience-card:hover,.experience-card:focus-within{transform:translateY(-3px);border-color:#b9c6b8;background:rgba(255,255,255,.82);box-shadow:0 12px 28px rgba(34,42,34,.07)}
+.card-topline{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:13px}
+.card-index{font:10px/1 ui-monospace,SFMono-Regular,Consolas,monospace;color:#788779;letter-spacing:.1em}
+.experience-card .evidence-status{margin:0;flex-shrink:0}
+.experience-card h4{font-size:17px;line-height:1.35;letter-spacing:-.035em;margin:0 0 4px}
+.experience-organization{font-size:12px;font-weight:500;color:#596359;margin:0 0 3px}
+.experience-subline{font-size:11px;color:var(--muted);margin:0 0 12px}
+.experience-description{font-size:12px;line-height:1.75;color:#4e554e;margin:0}
+.experience-card .experience-tags{margin-top:14px;gap:6px}
+.experience-card .experience-tags span{font-size:9px;padding:5px 8px}
+@media(max-width:760px){.experience-groups{grid-template-columns:1fr;gap:34px}.experience-group-head{min-height:0}.experience-card{padding:19px 18px}.experience-card h4{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.experience-card{transition:none}}
+\n
+/* Hero portrait sizing refinement */
+@media(min-width:1001px){
+  .hero-grid{grid-template-columns:minmax(0,1.05fr) minmax(420px,.95fr)}
+  .hero-visual,.portrait-placeholder{min-width:0}
+}
+.portrait-placeholder img{width:100%;height:100%;object-fit:cover;object-position:center 27%}
+\n</style>
 </head>
 <body>
 <div class="scroll-progress" aria-hidden="true"><span></span></div>
@@ -197,74 +230,72 @@ html{scroll-padding-top:88px}
       <h2>Different disciplines.<br>One evolving perspective.</h2>
       <p>A foundation built through planning, project coordination, and product practice.</p>
     </div>
-    <div class="timeline reveal">
-      <article class="timeline-item experience-entry">
-        <div class="timeline-date"><span class="entry-index">01</span><span>Education</span></div>
-        <div class="experience-content">
-          <div class="experience-heading">
-            <div>
-              <h3 class="timeline-title">Urban &amp; Regional Planning</h3>
-              <p class="timeline-sub">Institut Teknologi Nasional Malang (ITN Malang) · Bachelor’s Degree</p>
-            </div>
-            <span class="evidence-status">Learning</span>
+    <div class="experience-groups reveal">
+      <section class="experience-group" aria-labelledby="professional-heading">
+        <div class="experience-group-head">
+          <span class="group-index">01 / EXPERIENCE</span>
+          <div class="group-title-row">
+            <h3 id="professional-heading">Professional Experience</h3>
+            <span class="group-count">02 ROLES</span>
           </div>
-          <p class="timeline-desc">Studied how to translate regulatory frameworks, spatial data, and community needs into sustainable regional plans. Worked on land-use, transportation, and utility surveys, population and infrastructure projections, and spatial mapping using ArcGIS, covering planning scales from local communities to provincial regions.</p>
-          <div class="experience-tags" aria-label="Related capabilities">
-            <span>Regulatory Analysis</span><span>Survey Design</span><span>Spatial Analysis</span><span>Regional Planning</span>
-          </div>
+          <p>Putting plans into action through project coordination and stakeholder collaboration.</p>
         </div>
-      </article>
+        <div class="experience-card-list">
+          <article class="experience-card">
+            <div class="card-topline"><span class="card-index">01</span><span class="evidence-status">Proven at work</span></div>
+            <h4>Project Coordinator</h4>
+            <p class="experience-organization">CV Tamara Engineering</p>
+            <p class="experience-subline">15+ regional and national projects</p>
+            <p class="experience-description">Coordinating planning projects, stakeholder requirements, technical collaboration, and project deliverables.</p>
+            <div class="experience-tags" aria-label="Related capabilities">
+              <span>Project Coordination</span><span>Stakeholder Management</span><span>Cross-functional Collaboration</span>
+            </div>
+          </article>
+          <article class="experience-card">
+            <div class="card-topline"><span class="card-index">02</span><span class="evidence-status">Proven at work</span></div>
+            <h4>Project Support Officer</h4>
+            <p class="experience-organization">SUCOFINDO</p>
+            <p class="experience-subline">Project support</p>
+            <p class="experience-description">Supporting project operations, stakeholder communication, and cross-functional coordination.</p>
+            <div class="experience-tags" aria-label="Related capabilities">
+              <span>Project Support</span><span>Stakeholder Communication</span><span>Coordination</span>
+            </div>
+          </article>
+        </div>
+      </section>
 
-      <article class="timeline-item experience-entry">
-        <div class="timeline-date"><span class="entry-index">02</span><span>Professional</span></div>
-        <div class="experience-content">
-          <div class="experience-heading">
-            <div>
-              <h3 class="timeline-title">Project Coordinator · CV Tamara Engineering</h3>
-              <p class="timeline-sub">15+ regional and national projects</p>
-            </div>
-            <span class="evidence-status">Proven at work</span>
+      <section class="experience-group" aria-labelledby="learning-heading">
+        <div class="experience-group-head">
+          <span class="group-index">02 / DEVELOPMENT</span>
+          <div class="group-title-row">
+            <h3 id="learning-heading">Education &amp; Product Learning</h3>
+            <span class="group-count">02 MILESTONES</span>
           </div>
-          <p class="timeline-desc">Coordinating planning projects, stakeholder requirements, technical collaboration, and project deliverables.</p>
-          <div class="experience-tags" aria-label="Related capabilities">
-            <span>Project Coordination</span><span>Stakeholder Management</span><span>Cross-functional Collaboration</span>
-          </div>
+          <p>Building an analytical foundation and developing practical product skills.</p>
         </div>
-      </article>
-
-      <article class="timeline-item experience-entry">
-        <div class="timeline-date"><span class="entry-index">03</span><span>Professional</span></div>
-        <div class="experience-content">
-          <div class="experience-heading">
-            <div>
-              <h3 class="timeline-title">Project Support Officer · SUCOFINDO</h3>
-              <p class="timeline-sub">Project support</p>
+        <div class="experience-card-list">
+          <article class="experience-card">
+            <div class="card-topline"><span class="card-index">03</span><span class="evidence-status">Learning</span></div>
+            <h4>Urban &amp; Regional Planning</h4>
+            <p class="experience-organization">Institut Teknologi Nasional Malang (ITN Malang)</p>
+            <p class="experience-subline">Bachelor’s Degree</p>
+            <p class="experience-description">Studied how to translate regulatory frameworks, spatial data, and community needs into sustainable regional plans. Worked on land-use, transportation, and utility surveys, population and infrastructure projections, and spatial mapping using ArcGIS, covering planning scales from local communities to provincial regions.</p>
+            <div class="experience-tags" aria-label="Related capabilities">
+              <span>Regulatory Analysis</span><span>Survey Design</span><span>Spatial Analysis</span><span>Regional Planning</span>
             </div>
-            <span class="evidence-status">Proven at work</span>
-          </div>
-          <p class="timeline-desc">Supporting project operations, stakeholder communication, and cross-functional coordination.</p>
-          <div class="experience-tags" aria-label="Related capabilities">
-            <span>Project Support</span><span>Stakeholder Communication</span><span>Coordination</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="timeline-item experience-entry">
-        <div class="timeline-date"><span class="entry-index">04</span><span>Development</span></div>
-        <div class="experience-content">
-          <div class="experience-heading">
-            <div>
-              <h3 class="timeline-title">Business Analyst &amp; Product Strategy Bootcamp</h3>
-              <p class="timeline-sub">Dibimbing.id · March–October 2026</p>
+          </article>
+          <article class="experience-card">
+            <div class="card-topline"><span class="card-index">04</span><span class="evidence-status">Learning</span></div>
+            <h4>Business Analyst &amp; Product Strategy Bootcamp</h4>
+            <p class="experience-organization">Dibimbing.id</p>
+            <p class="experience-subline">March–October 2026</p>
+            <p class="experience-description">Hands-on practice in product discovery, requirements, prioritization, prototyping, and data analysis.</p>
+            <div class="experience-tags" aria-label="Related capabilities">
+              <span>Product Discovery</span><span>Requirements</span><span>Prioritization</span><span>Prototyping</span><span>Data Analysis</span>
             </div>
-            <span class="evidence-status">Learning</span>
-          </div>
-          <p class="timeline-desc">Hands-on practice in product discovery, requirements, prioritization, prototyping, and data analysis.</p>
-          <div class="experience-tags" aria-label="Related capabilities">
-            <span>Product Discovery</span><span>Requirements</span><span>Prioritization</span><span>Prototyping</span><span>Data Analysis</span>
-          </div>
+          </article>
         </div>
-      </article>
+      </section>
     </div>
   </div>
 </section>
