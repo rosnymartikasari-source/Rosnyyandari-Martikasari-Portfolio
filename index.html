@@ -88,25 +88,100 @@ main>section.section>.wrap{width:min(var(--max),calc(100% - 64px));margin-left:a
 .projects .project-info p{flex:1}
 @media(max-width:850px){.about-journey{grid-template-columns:1fr;gap:10px}.journey-connector{transform:rotate(90deg);height:24px}.journey-step{padding:20px}}
 
+
+
+/* Evidence-led APM portfolio refinement */
+:root{--signal:#9eb7a7;--signal-ink:#526b5c}
+html{scroll-padding-top:88px}
+.hero{position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;right:-180px;top:-190px;width:500px;height:500px;border:1px solid rgba(125,142,120,.18);border-radius:50%;pointer-events:none}
+.hero:after{content:"";position:absolute;right:-105px;top:-115px;width:350px;height:350px;border:1px solid rgba(125,142,120,.13);border-radius:50%;pointer-events:none}
+.hero-grid{position:relative;z-index:1}
+.hero h1{font-size:clamp(43px,5.5vw,76px);line-height:1.08;letter-spacing:-.065em}
+.hero h1 .soft{color:#89968b}
+.hero-copy{max-width:620px;line-height:1.85}
+.evidence-status{display:inline-flex;align-items:center;width:max-content;margin-top:12px;padding:4px 9px;border:1px solid #cbd5ca;border-radius:999px;color:#506b59;font-size:10px;line-height:1.5;letter-spacing:.035em;background:rgba(235,241,234,.7)}
+.timeline-item{align-items:start}
+
+
+
+
+
+.puzzle-detail .evidence-status{margin:0 0 8px}
+.domain-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:-12px 0 36px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.domain-strip>div{padding:18px 20px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:4px}
+.domain-strip>div:first-child{padding-left:0}
+.domain-strip>div:last-child{border-right:0}
+.domain-strip span{font-size:9px;letter-spacing:.15em;color:var(--accent)}
+.domain-strip strong{font-size:13px;font-weight:600}
+.domain-strip em{font-style:normal;font-size:10px;color:var(--muted)}
+.project-info .evidence-status{margin:3px 0 8px}
+.project-card{transition:transform .22s ease,box-shadow .22s ease}
+.project-card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(25,35,28,.08)}
+.btn,.filter,.puzzle-piece{transition:transform .2s ease,background .2s ease,border-color .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.puzzle-piece:focus-visible,.filter:focus-visible,.btn:focus-visible,.navlinks a:focus-visible{outline:3px solid #8da895;outline-offset:3px}
+@media(max-width:760px){
+ .domain-strip{grid-template-columns:1fr}
+ .domain-strip>div,.domain-strip>div:first-child{padding:13px 0;border-right:0;border-bottom:1px solid var(--line)}
+ .domain-strip>div:last-child{border-bottom:0}
+ .timeline-item{grid-template-columns:1fr;gap:8px}
+ .jayapura-story{padding-left:15px}
+ .hero:before{right:-320px}
+ .hero:after{right:-250px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+
+.scroll-progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:100;background:transparent}.scroll-progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,#7d8e78,#b7cdbd)}
+
+/* Experience: futuristic editorial refinement */
+.experience .section-head{position:relative}
+.experience .section-head:after{content:"";display:block;width:100%;height:1px;margin-top:28px;background:linear-gradient(90deg,var(--accent),transparent 72%)}
+.experience .timeline{position:relative}
+.experience .timeline:before{content:"";position:absolute;left:calc(190px + 17px);top:30px;bottom:30px;width:1px;background:linear-gradient(180deg,rgba(125,142,120,.55),rgba(125,142,120,.08))}
+.experience-entry{position:relative;transition:background .22s ease}
+.experience-entry:focus-within,.experience-entry:hover{background:rgba(255,255,255,.28)}
+.experience-entry .timeline-date{display:flex;align-items:center;gap:12px;position:relative;z-index:1}
+.entry-index{display:grid;place-items:center;width:34px;height:34px;border:1px solid #cbd4c9;border-radius:50%;background:var(--paper);color:#637765;font:11px/1 ui-monospace,SFMono-Regular,Consolas,monospace}
+.experience-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:10px}
+.experience-heading .evidence-status{flex-shrink:0;margin:0}
+.experience-content .timeline-sub{margin-bottom:0}
+.experience-content .timeline-desc{line-height:1.8}
+.experience-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+.experience-tags span{display:inline-flex;align-items:center;border:1px solid #d2d9d0;border-radius:999px;padding:5px 10px;background:rgba(255,255,255,.38);color:#566257;font-size:10px;letter-spacing:.015em}
+@media(max-width:850px){
+ .experience .timeline:before{left:16px}
+ .experience-entry .timeline-date{padding-left:0}
+}
+@media(max-width:640px){
+ .experience .timeline:before{left:16px;top:20px;bottom:20px}
+ .experience-entry{padding:24px 0}
+ .experience-heading{flex-direction:column;gap:8px}
+ .experience-heading .evidence-status{align-self:flex-start}
+ .experience-entry .timeline-date{gap:10px}
+ .entry-index{width:32px;height:32px}
+}
+
 </style>
 </head>
 <body>
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
 <header>
   <div class="wrap nav">
     <a class="logo" href="#top">Rosnyyandari Martikasari</a>
     <button class="menu-btn" id="menuBtn" aria-label="Open navigation">Menu</button>
     <nav class="navlinks" id="navLinks">
-      <a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#interests">Interests</a><a href="#contact">Contact ↗</a>
+      <a href="#experience">Experience</a><a href="#skills">Capabilities</a><a href="#projects">Selected Work</a><a href="#interests">Beyond</a><a href="#contact">Contact ↗</a>
     </nav>
   </div>
 </header>
 <main>
 <section class="hero" id="top"><div class="wrap hero-grid">
   <div class="reveal">
-    <div class="hero-kicker eyebrow"><span class="dot"></span> ASPIRING PRODUCT MANAGER · URBAN PLANNING · PROJECT COORDINATION</div>
-    <h1>I connect the dots.<br><span class="soft">Then make them work.</span></h1>
-    <p class="hero-copy">Aspiring Product Manager with a foundation in urban planning and project coordination. I’m interested in understanding the intersection of business goals and people’s needs, connecting insights across different perspectives, and turning complex problems into practical solutions that create meaningful value.</p>
-    <div class="hero-actions"><a class="btn primary" href="#projects">Explore my projects ↗</a><a class="btn secondary" href="#about">Get to know me</a></div>
+    <div class="hero-kicker eyebrow"><span class="dot"></span> ASSOCIATE PRODUCT MANAGER CANDIDATE · OPEN TO ROLES ACROSS INDUSTRIES</div>
+    <h1>Understanding constraints.<br><span class="soft">Connecting perspectives.<br>Building what works.</span></h1>
+    <p class="hero-copy">Associate Product Manager Candidate with 3+ years coordinating regional and national projects. I bring experience aligning stakeholders and a growing foundation in product discovery, prioritization, and building solutions from research to MVP.</p>
+    <div class="hero-actions"><a class="btn primary" href="#projects">View selected work ↗</a><a class="btn secondary" href="#experience">Explore my experience</a></div>
   </div>
   <div class="hero-visual reveal">
   <div class="portrait-placeholder" id="portrait">
@@ -114,27 +189,86 @@ main>section.section>.wrap{width:min(var(--max),calc(100% - 64px));margin-left:a
   </div>
 </div>
 </div></section>
-<section class="section about" id="about"><div class="wrap about-grid">
-  <div class="about-label reveal"><div class="eyebrow">01 / About</div><p class="small">A perspective shaped by different disciplines.</p></div>
-  <div class="about-journey reveal" aria-label="My journey from planning to product thinking">
-  <div class="journey-step"><span class="journey-number">01</span><span class="journey-label">Understand systems</span><h3>Urban Planning</h3><p>Seeing how people, places, and systems connect.</p></div>
-  <div class="journey-connector" aria-hidden="true">→</div>
-  <div class="journey-step"><span class="journey-number">02</span><span class="journey-label">Align & execute</span><h3>Project Coordination</h3><p>Bringing stakeholders together and turning plans into action.</p></div>
-  <div class="journey-connector" aria-hidden="true">→</div>
-  <div class="journey-step journey-step-current"><span class="journey-number">03</span><span class="journey-label">Apply the perspective</span><h3>Product Thinking</h3><p>Connecting user needs and business goals to practical solutions.</p></div>
-</div>
-</div></section>
-<section class="section experience" id="experience"><div class="wrap">
-  <div class="section-head reveal"><div class="eyebrow">02 / Experience & Learning</div><h2>Different experiences.<br>One evolving perspective.</h2><p>Work, education, and learning that have shaped how I think, collaborate, and approach problems.</p></div>
-  <div class="timeline reveal">
-    <article class="timeline-item"><div class="timeline-date">Education</div><div><h3 class="timeline-title">Urban & Regional Planning</h3><p class="timeline-sub">Bachelor’s Degree</p><p class="timeline-desc">Studied spatial relationships, communities, planning systems, and how different elements shape a bigger picture.</p></div></article>
-    <article class="timeline-item"><div class="timeline-date">Professional Experience</div><div><h3 class="timeline-title">Project Coordinator · CV Tamara Engineering</h3><p class="timeline-sub">Regional and national-scale projects</p><p class="timeline-desc">Coordinated project deliverables, stakeholders, documentation, and execution across multiple workstreams.</p></div></article>
-    <article class="timeline-item"><div class="timeline-date">Professional Experience</div><div><h3 class="timeline-title">Project Support Officer · SUCOFINDO</h3><p class="timeline-sub">Project support</p><p class="timeline-desc">Supported project coordination and collaboration involving multiple stakeholders and project requirements.</p></div></article>
-    <article class="timeline-item"><div class="timeline-date">Professional Development</div><div><h3 class="timeline-title">Business Analyst & Product Strategy Bootcamp</h3><p class="timeline-sub">Dibimbing.id</p><p class="timeline-desc">Built practical knowledge in business analysis, product strategy, research, requirements, product planning, data analysis, and hands-on case projects.</p></div></article>
+<section class="section experience" id="experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">01 / Experience</div>
+      <h2>Different disciplines.<br>One evolving perspective.</h2>
+      <p>A foundation built through planning, project coordination, and product practice.</p>
+    </div>
+    <div class="timeline reveal">
+      <article class="timeline-item experience-entry">
+        <div class="timeline-date"><span class="entry-index">01</span><span>Education</span></div>
+        <div class="experience-content">
+          <div class="experience-heading">
+            <div>
+              <h3 class="timeline-title">Urban &amp; Regional Planning</h3>
+              <p class="timeline-sub">Institut Teknologi Nasional Malang (ITN Malang) · Bachelor’s Degree</p>
+            </div>
+            <span class="evidence-status">Learning</span>
+          </div>
+          <p class="timeline-desc">Studied how to translate regulatory frameworks, spatial data, and community needs into sustainable regional plans. Worked on land-use, transportation, and utility surveys, population and infrastructure projections, and spatial mapping using ArcGIS, covering planning scales from local communities to provincial regions.</p>
+          <div class="experience-tags" aria-label="Related capabilities">
+            <span>Regulatory Analysis</span><span>Survey Design</span><span>Spatial Analysis</span><span>Regional Planning</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-item experience-entry">
+        <div class="timeline-date"><span class="entry-index">02</span><span>Professional</span></div>
+        <div class="experience-content">
+          <div class="experience-heading">
+            <div>
+              <h3 class="timeline-title">Project Coordinator · CV Tamara Engineering</h3>
+              <p class="timeline-sub">15+ regional and national projects</p>
+            </div>
+            <span class="evidence-status">Proven at work</span>
+          </div>
+          <p class="timeline-desc">Coordinating planning projects, stakeholder requirements, technical collaboration, and project deliverables.</p>
+          <div class="experience-tags" aria-label="Related capabilities">
+            <span>Project Coordination</span><span>Stakeholder Management</span><span>Cross-functional Collaboration</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-item experience-entry">
+        <div class="timeline-date"><span class="entry-index">03</span><span>Professional</span></div>
+        <div class="experience-content">
+          <div class="experience-heading">
+            <div>
+              <h3 class="timeline-title">Project Support Officer · SUCOFINDO</h3>
+              <p class="timeline-sub">Project support</p>
+            </div>
+            <span class="evidence-status">Proven at work</span>
+          </div>
+          <p class="timeline-desc">Supporting project operations, stakeholder communication, and cross-functional coordination.</p>
+          <div class="experience-tags" aria-label="Related capabilities">
+            <span>Project Support</span><span>Stakeholder Communication</span><span>Coordination</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-item experience-entry">
+        <div class="timeline-date"><span class="entry-index">04</span><span>Development</span></div>
+        <div class="experience-content">
+          <div class="experience-heading">
+            <div>
+              <h3 class="timeline-title">Business Analyst &amp; Product Strategy Bootcamp</h3>
+              <p class="timeline-sub">Dibimbing.id · March–October 2026</p>
+            </div>
+            <span class="evidence-status">Learning</span>
+          </div>
+          <p class="timeline-desc">Hands-on practice in product discovery, requirements, prioritization, prototyping, and data analysis.</p>
+          <div class="experience-tags" aria-label="Related capabilities">
+            <span>Product Discovery</span><span>Requirements</span><span>Prioritization</span><span>Prototyping</span><span>Data Analysis</span>
+          </div>
+        </div>
+      </article>
+    </div>
   </div>
-</div></section>
+</section>
 <section class="section skills" id="skills"><div class="wrap">
-  <div class="section-head reveal"><div class="eyebrow">03 / What shapes my product thinking</div><h2>Different strengths.<br>One perspective.</h2><p>Explore the four pieces that shape how I approach product challenges. Each connects to skills I’ve gained through my education, work, and hands-on learning.</p></div>
+  <div class="section-head reveal"><div class="eyebrow">02 / Capabilities & Evidence</div><h2>How I work through<br>product problems.</h2><p>Explore the four parts of my approach. Each is connected to skills and evidence from work, product cases, or structured learning.</p></div>
   <div class="puzzle-layout reveal">
     <div class="puzzle-board" aria-label="Interactive four-part skills puzzle">
       <button class="puzzle-piece piece-understand active" data-piece="understand"><span class="piece-number">01</span><span class="piece-name">Understand</span><span class="piece-caption">People · systems · problems</span></button>
@@ -146,36 +280,42 @@ main>section.section>.wrap{width:min(var(--max),calc(100% - 64px));margin-left:a
     <div class="puzzle-detail" id="puzzleDetail" aria-live="polite">
       <div class="eyebrow" id="puzzleEyebrow">Piece 01 / Understand</div><h3 id="puzzleTitle">Understand the bigger picture</h3><p id="puzzleDesc">My urban planning foundation trained me to look at places, systems, people, and how different factors influence one another before jumping to solutions.</p>
       <div class="puzzle-tags" id="puzzleTags"><span>Urban & Regional Planning</span><span>Research</span><span>Systems Thinking</span><span>Analytical Thinking</span></div>
-      <div class="puzzle-evidence"><span class="evidence-label">Where this comes from</span><p id="puzzleEvidence">Education · Planning projects · Product research case studies</p></div>
+      <div class="puzzle-evidence"><span class="evidence-label">Evidence</span><span class="evidence-status" id="puzzleStatus">Learning</span><p id="puzzleEvidence">Urban & Regional Planning education · TakarUntung research · SOCO independent study</p></div>
       <div class="puzzle-hint">Select another piece to explore ↗</div>
     </div>
   </div>
 </div></section>
 <section class="section projects" id="projects"><div class="wrap">
-  <div class="section-head reveal"><div class="eyebrow">04 / Selected Work</div><h2>Projects, cases &<br>things I’ve explored.</h2><p>A selection of product cases and learning projects. Open a project to see its overview. Detailed artifacts and links will be added as each case is reviewed.</p></div>
+  <div class="section-head reveal"><div class="eyebrow">03 / Selected Work</div><h2>Different domains.<br>One way of working.</h2><p>Across different problem spaces, I focus on understanding real user and business needs, aligning priorities, shaping practical solutions, and evaluating what works. These projects reflect how I approach product challenges, regardless of industry.</p></div>
+  <div class="domain-strip reveal" aria-label="Three problem domains">
+    <div><span>01</span><strong>Government & urban planning</strong><em>Proven at work</em></div>
+    <div><span>02</span><strong>SME finance</strong><em>Built (MVP)</em></div>
+    <div><span>03</span><strong>E-commerce retail</strong><em>Simulated study</em></div>
+  </div>
   <div class="project-toolbar reveal"><button class="filter active" data-filter="all">All projects</button><button class="filter" data-filter="product">Product</button><button class="filter" data-filter="research">Research</button><button class="filter" data-filter="data">Data</button><button class="filter" data-filter="technical">Technical</button></div>
   <div class="project-grid reveal">
-    <article class="project-card" data-category="product"><div class="project-cover cover-takar"><div class="cover-shape"></div><div class="cover-word">Takar<br>Untung</div><span class="cover-index">01</span></div><div class="project-info"><div class="project-meta"><span>Product concept</span><span>Business tools</span></div><h3>TakarUntung</h3><p>A product concept exploring how culinary micro-business owners can better understand costs, pricing, and profit.</p><a class="project-open" href="projects/takaruntung.html">Explore case ↗</a></div></article>
-    <article class="project-card" data-category="research product"><div class="project-cover cover-soco"><div class="cover-shape"></div><div class="cover-word">Click &<br>Collect</div><span class="cover-index">02</span></div><div class="project-info"><div class="project-meta"><span>Product research</span><span>Retail experience</span></div><h3>SOCO by Sociolla · Click & Collect</h3><p>Exploring friction in the Click & Collect journey and opportunities to improve the order confirmation experience.</p><a class="project-open" href="Sociolla/sociolla.html">Explore case ↗</a></div></article>
+    <article class="project-card" data-category="product"><div class="project-cover cover-takar"><div class="cover-shape"></div><div class="cover-word">Takar<br>Untung</div><span class="cover-index">01</span></div><div class="project-info"><div class="project-meta"><span>Product concept</span><span>SME finance</span></div><h3>TakarUntung</h3><p>A working MVP shaped by 13 survey responses and 6 micro-interviews, exploring how culinary micro-business owners can understand costs, pricing, and profit.</p><span class="evidence-status">Built (MVP)</span><a class="project-open" href="projects/takaruntung.html">Explore case ↗</a></div></article>
+    <article class="project-card" data-category="research product"><div class="project-cover cover-soco"><div class="cover-shape"></div><div class="cover-word">Click &<br>Collect</div><span class="cover-index">02</span></div><div class="project-info"><div class="project-meta"><span>Independent case study</span><span>Retail experience</span></div><h3>SOCO by Sociolla · Click & Collect</h3><p>A simulated-data study exploring uncertainty in stock availability and order confirmation during the Click & Collect journey.</p><span class="evidence-status">Simulated study</span><a class="project-open" href="Sociolla/sociolla.html">Explore case ↗</a></div></article>
   </div>
 </div></section>
 <section class="section interests" id="interests"><div class="wrap">
-  <div class="section-head reveal"><div class="eyebrow">05 / Beyond the work</div><h2>Planning mindset.<br>Product curiosity.</h2><p>Outside of work and structured learning, I enjoy exploring ideas, learning new things, and reflecting along the way.</p></div>
-  <div class="interest-grid reveal"><article class="interest-card"><div class="num">01 / PERSONAL GROWTH</div><h3>Learning about myself</h3><p>Making space to reflect, understand patterns, and keep growing with intention.</p></article><article class="interest-card"><div class="num">02 / CURIOSITY</div><h3>Exploring new ideas</h3><p>Following questions, discovering perspectives, and learning beyond what I already know.</p></article><article class="interest-card"><div class="num">03 / PERSPECTIVE</div><h3>Connecting the dots</h3><p>Finding meaning in experiences and noticing how seemingly different things relate.</p></article></div>
+  <div class="section-head reveal"><div class="eyebrow">04 / Beyond the work</div><h2>Curiosity beyond the brief.</h2><p>I enjoy understanding how things work behind the scenes, exploring new perspectives, and connecting ideas across disciplines.</p></div>
 </div></section>
-<section class="section contact" id="contact"><div class="wrap"><div class="contact-wrap reveal"><div class="eyebrow">06 / Let's connect</div><h2>Good conversations can lead somewhere.</h2><p>Always open to connecting with people, exchanging ideas, and exploring opportunities to build meaningful things together.</p><div class="contact-links"><a href="mailto:rosny.martikasari@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/rosnyyandarimartikasari/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div></div></section>
+<section class="section contact" id="contact"><div class="wrap"><div class="contact-wrap reveal"><div class="eyebrow">05 / Let's connect</div><h2>Good conversations can lead somewhere.</h2><p>Always open to connecting with people, exchanging ideas, and exploring opportunities to build meaningful things together.</p><div class="contact-links"><a href="mailto:rosny.martikasari@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/rosnyyandarimartikasari/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
+<!-- TODO: Add Download CV link after Sari provides the latest CV file. --></div></div></section>
 </main>
 <footer><div class="wrap footer-inner"><span>Rosnyyandari Martikasari © 2026</span><span>Understand · Build · Evolve</span><span>Made with curiosity.</span></div></footer>
 
 <script>
+const progressLine=document.querySelector('.scroll-progress span');window.addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-window.innerHeight;progressLine.style.width=(max>0?window.scrollY/max*100:0)+'%'},{passive:true});
 const menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks');menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
 const puzzleContent={
- understand:{eyebrow:'Piece 01 / Understand',title:'Understand the bigger picture',desc:'My urban planning foundation trained me to look at places, systems, people, and how different factors influence one another before jumping to solutions.',tags:['Urban & Regional Planning','Research','Systems Thinking','Analytical Thinking'],evidence:'Education · Planning projects · Product research case studies'},
- align:{eyebrow:'Piece 02 / Align',title:'Bring people and work together',desc:'Project coordination taught me to work across stakeholders, clarify needs, manage moving parts, and support teams in keeping work aligned toward shared deliverables.',tags:['Stakeholder Management','Project Coordination','Communication','Cross-functional Collaboration'],evidence:'15+ regional and national projects · 40+ stakeholder engagements'},
- build:{eyebrow:'Piece 03 / Build',title:'Turn needs into structured solutions',desc:'Through bootcamp learning and case projects, I practice turning problem understanding into product requirements, user flows, prioritization, and solution concepts.',tags:['Product Discovery','Requirements','Product Planning','Wireframing · UX Basics'],evidence:'Product case projects · PRD · BRD · FSD · User flows · Wireframes'},
- measure:{eyebrow:'Piece 04 / Measure',title:'Learn, test, and improve',desc:'I use data and experimentation to evaluate ideas, understand what works, and guide iteration. In the Sociolla Click & Collect case, I explored metrics and A/B testing as ways to assess potential improvements to the experience.',tags:['Data Analysis','Metrics','Experimentation','A/B Testing','Excel','Power BI'],evidence:'Sociolla Click & Collect case · A/B testing exploration · Dashboard practice'}
+ understand:{eyebrow:'Piece 01 / Understand',title:'Find the real constraint',desc:'Urban planning trained me to see how people, places, and systems influence one another. I bring that systems perspective into product discovery by starting with context before solutions.',tags:['Systems Thinking','Research','Problem Framing'],status:'Learning',evidence:'Urban & Regional Planning education · TakarUntung research (13 surveys, 6 micro-interviews)'},
+ align:{eyebrow:'Piece 02 / Align',title:'Bring people and work together',desc:'Project coordination taught me to clarify needs, work across stakeholders, and adapt plans when constraints change. In Jayapura, I helped shift a blocked field survey to a remotely coordinated approach.',tags:['Stakeholder Management','Project Coordination','Communication'],status:'Proven at work',evidence:'15+ regional and national projects · Jayapura field survey'},
+ build:{eyebrow:'Piece 03 / Build',title:'Turn needs into a working solution',desc:'I translate research and problem understanding into product requirements, prioritized scope, user flows, and prototypes. TakarUntung is a working MVP, not yet validated with real users.',tags:['Product Discovery','Requirements','Prioritization','Prototyping'],status:'Built (MVP)',evidence:'TakarUntung · 13 surveys · 6 micro-interviews · Working MVP'},
+ measure:{eyebrow:'Piece 04 / Measure',title:'Evaluate what the evidence can tell us',desc:'I use metrics and prototype testing to assess usability and identify what should be tested next. SOCO is an independent study using simulated data, so its proposed targets are not observed product results.',tags:['Metrics','Data Analysis','Experimentation','Usability Testing'],status:'Simulated study',evidence:'SOCO Click & Collect · Simulated data · 3 micro-interviews · A/B testing with 2 participants'}
 };
-document.querySelectorAll('.puzzle-piece').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.puzzle-piece').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const c=puzzleContent[btn.dataset.piece];document.getElementById('puzzleEyebrow').textContent=c.eyebrow;document.getElementById('puzzleTitle').textContent=c.title;document.getElementById('puzzleDesc').textContent=c.desc;document.getElementById('puzzleTags').innerHTML=c.tags.map(t=>`<span>${t}</span>`).join('');document.getElementById('puzzleEvidence').textContent=c.evidence;}));
+document.querySelectorAll('.puzzle-piece').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.puzzle-piece').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const c=puzzleContent[btn.dataset.piece];document.getElementById('puzzleEyebrow').textContent=c.eyebrow;document.getElementById('puzzleTitle').textContent=c.title;document.getElementById('puzzleDesc').textContent=c.desc;document.getElementById('puzzleTags').innerHTML=c.tags.map(t=>`<span>${t}</span>`).join('');document.getElementById('puzzleEvidence').textContent=c.evidence;document.getElementById('puzzleStatus').textContent=c.status;}));
 document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;document.querySelectorAll('.project-card').forEach(card=>{card.classList.toggle('hidden',f!=='all'&&!card.dataset.category.split(' ').includes(f));});}));
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
